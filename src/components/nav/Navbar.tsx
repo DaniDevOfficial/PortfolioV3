@@ -43,8 +43,8 @@ export function Navbar() {
                                         to={route.path}
                                         key={route.name}
                                         cursor={"pointer"}
-                                        _hover={{ letterSpacing: "0.2em" }}
-                                        transition="transform 0.3s ease-in-out, letter-spacing 0.2s ease-in-out"
+                                        _hover={{ letterSpacing: "0.2em", fontWeight: "bold", color: "accent.base" }}
+                                        transition="transform 0.3s ease-in-out, letter-spacing 0.2s ease-in-out, font-weight 0.2s ease-in-out, color 0.2s ease-in-out"
                                     >
                                         {route.name}
                                     </Text>

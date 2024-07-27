@@ -1,7 +1,7 @@
 import { Box, Flex, Heading, Icon, Text, Image, chakra, useDisclosure } from '@chakra-ui/react'
 import { MdEmail } from "react-icons/md";
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
-import { useState } from 'react';
+import { getHoverEffectStyles, shine, wave } from '../util/Style';
 export function DesktopLanding() {
 
     const socialIcons = [
@@ -24,25 +24,10 @@ export function DesktopLanding() {
     ]
 
     const { isOpen, onOpen, onClose } = useDisclosure();
+    const colors = ["#3d92cf", "#007BFF", "#00CFFF", "#007BFF", "#3d92cf", "#007BFF", "#00CFFF", "#007BFF"];
+    const hoverStyles = getHoverEffectStyles(colors);
 
-    // Conditional style for the highlight effect
-    const highlightStyle = {
-        zIndex: 5,
-        overflow: 'hidden',
-        padding: '0 0.2rem', // Adjust padding to fit the highlight
-    };
 
-    const highlightBeforeStyle: React.CSSProperties = {
-        position: 'absolute',
-        bottom: 3,
-        left: 0,
-        height: isOpen ? '100%' : '50%',
-        width: '100%',
-        background: 'linear-gradient(180deg, transparent 50%, orange 0%)', // Adjust color here
-        opacity: 0.5,
-        zIndex: -1,
-        transition: 'height 0.3s ease',
-    };
 
     return (
         <>
@@ -52,7 +37,6 @@ export function DesktopLanding() {
                 gap={4}
                 justifyContent={"center"}
                 pt={"2rem"}
-                outline={"1px solid red"}
             >
                 <Box>
                     <Image
@@ -60,7 +44,13 @@ export function DesktopLanding() {
                         alt={"placeholder"}
                         borderRadius={"3xl"}
                         width={"300px"}
+                        transition={"transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out"}
+                        _hover={{
+                            transform: "scale(1.01) translate(-2px, 2px)",
+                            boxShadow: "0 10px 20px rgba(0, 0, 0, 0.25)",
+                        }}
                     />
+
                     <Flex
                         gap={4}
                         pt={"1rem"}
@@ -90,24 +80,56 @@ export function DesktopLanding() {
                             position="relative"
                             onMouseEnter={onOpen}
                             onMouseLeave={onClose}
-                            style={highlightStyle}
+                            zIndex={5}
+                            overflow={'hidden'}
+                            padding={'0 0.2rem'}
                         >
                             <Box
                                 as="span"
-                                style={highlightBeforeStyle}
+                                position={'absolute'}
+                                bottom={1}
+                                left={0}
+                                height={isOpen ? '100%' : '50%'}
+                                width={'100%'}
+                                background={'linear-gradient(180deg, transparent 50%, orange 0%)'}
+                                opacity={0.5}
+                                zIndex={-1}
+                                transition={'height 0.3s ease'}
                             />
                             David
                         </Box>
-                        {' '}👋
+                        {' '}
+                        <chakra.a
+                            _hover={{
+                                animation: "wave 1s infinite",
+                                display: "inline-block",
+                                transition: "wave 0.2s ease-in-out" 
+                            }}
+                            sx={wave}
+                        >
+                            👋
+                        </chakra.a>
                     </Heading>
                     <Text>
-                        I'm a software engineer from Switzerland 🇨🇭 . I'm passionate about web development and enjoy learning new things.
+                        I'm a software engineer from Switzerland 🇨🇭 . I'm passionate about web development and enjoy learning about new technologies and tools.
                     </Text>
 
                     <Text
                         pt={"1rem"}
                     >
-                        I'm currently working as a Intern at <chakra.a href={"https://www.andeo.ch"} color={"#3d92cf"} target="_blank" rel="noopener noreferrer">Andeo</chakra.a>.
+                        I'm currently working as a Intern at {' '}
+                        <chakra.a
+                            href={"https://www.andeo.ch"}
+                            color={"#3d92cf"}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            position="relative"
+                            _hover={hoverStyles}
+                            sx={shine}
+                        >
+                            Andeo
+                        </chakra.a>
+                        .
                     </Text>
                 </Box>
             </Flex >
