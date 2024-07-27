@@ -1,8 +1,8 @@
-import React, { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { Box, Icon, Text } from '@chakra-ui/react';
 import { FaGithub } from 'react-icons/fa';
 
-function FollowMouseIcon() {
+export function FollowMouseIcon() {
     const [distance, setDistance] = useState(0);
     const [iconPosition, setIconPosition] = useState({  x: 0, y: 0 });
     const iconRef = useRef(null);
@@ -10,12 +10,12 @@ function FollowMouseIcon() {
     const [clientY, setClientY] = useState(0);
 
 
-    function calculateDistance(x1, y1, x2, y2) {
+    function calculateDistance(x1: number, y1: number, x2: number, y2: number) {
         return Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
     }
 
     useEffect(() => {
-        const handleMouseMove = (event) => {
+        const handleMouseMove = (event: MouseEvent) => {
             const { clientX, clientY } = event;
             setClientX(clientX);
             setClientY(clientY);
@@ -80,4 +80,3 @@ function FollowMouseIcon() {
     );
 }
 
-export default FollowMouseIcon;
