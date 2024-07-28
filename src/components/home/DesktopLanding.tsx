@@ -2,6 +2,7 @@ import { Box, Flex, Heading, Icon, Text, Image, chakra, useDisclosure } from '@c
 import { MdEmail } from "react-icons/md";
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import { getHoverEffectStyles, shine, wave } from '../util/Style';
+import { motion } from 'framer-motion';
 import Magnetic from '../util/magnetic';
 export function DesktopLanding() {
 
@@ -63,6 +64,10 @@ export function DesktopLanding() {
                                         as={socialIcon.icon}
                                         height={"30px"}
                                         width={"auto"}
+                                        transition={"color 0.3s ease-in-out"}
+                                        _hover={{
+                                            color: "accent.base"
+                                        }}
                                     />
                                 </a>
                             </Magnetic>

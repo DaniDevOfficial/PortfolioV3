@@ -10,9 +10,9 @@ export function HomePage() {
             <Flex
                 flexDir={"column"}
                 alignItems={"center"}
-                gap={10}
+                gap={20}
             >
-
+                    
                 <Landing />
                 <Skills />
             </Flex>

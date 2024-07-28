@@ -12,7 +12,7 @@ export function DefaultLayout() {
                 <Navbar />
                 <chakra.div minHeight={"100vh"} width={"100%"}  >
                     <chakra.main marginBottom={"2rem"} >
-                        <Container maxW={"5xl"} color="text.base">
+                        <Container maxW={"container.xl"} color="text.base">
                             <Flex
                                 flexDir={"column"}
                                 alignItems={"center"}

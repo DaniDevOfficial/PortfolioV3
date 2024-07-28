@@ -1,18 +1,30 @@
-import { Grid, GridItem, Box } from '@chakra-ui/react';
+import { Grid, GridItem, Box, Heading, Text, useDisclosure } from '@chakra-ui/react';
 import React, { useState } from 'react';
 
 const languages = [
-    { name: 'Java', info: 'I used it during my time at the BBW.', bg: '#f58220', colStart: 1, colEnd: 3, rowStart: 1, rowEnd: 2 },
-    { name: 'TypeScript', info: 'Currently using for all my Web Projects. I like the type System and its just better JS.', bg: '#387cc8', colStart: 1, colEnd: 3, rowStart: 2, rowEnd: 4 },
-    { name: 'JavaScript', info: 'Before TS I mostly used JavaScript to learn things like DSA or used it in React.', bg: '#f8e233', colStart: 3, colEnd: 5, rowStart: 3, rowEnd: 5 },
-    { name: 'Python', info: 'I use it for some animations and some Algorithms.', bg: 'linear-gradient(to bottom right, #3772a5 40%, #ffd342 60%)', colStart: 1, colEnd: 2, rowStart: 4, rowEnd: 5 },
-    { name: 'PHP', info: 'For my Job.', bg: '#8e96bf', colStart: 2, colEnd: 3, rowStart: 4, rowEnd: 5 },
-    { name: 'CSS', info: 'Just for styling before Tailwind and ChakraUI.', bg: '#326af1', colStart: 3, colEnd: 4, rowStart: 1, rowEnd: 3 },
-    { name: 'HTML', info: 'Its simply HTML...', bg: '#e4552c', colStart: 4, colEnd: 5, rowStart: 1, rowEnd: 3 },
+    { name: 'Java', info: 'I used Java during my time at BBW, where I used it to learn programming.', bg: '#f58220', colStart: 1, colEnd: 3, rowStart: 1, rowEnd: 2 },
+    { name: 'TypeScript', info: 'Currently I use TypeScript for Web-based Projects. I like its type system and how it is a better JavaScript.', bg: '#387cc8', colStart: 1, colEnd: 3, rowStart: 2, rowEnd: 4 },
+    { name: 'JavaScript', info: 'Initially used JavaScript for getting better at the web together with React.', bg: '#f8e233', colStart: 3, colEnd: 5, rowStart: 3, rowEnd: 5 },
+    { name: 'Python', info: 'For animation and algorithms.', bg: 'linear-gradient(to bottom right, #3772a5 40%, #ffd342 60%)', colStart: 1, colEnd: 2, rowStart: 4, rowEnd: 5 },
+    { name: 'PHP', info: 'I use PHP for my professional work.', bg: '#8e96bf', colStart: 2, colEnd: 3, rowStart: 4, rowEnd: 5 },
+    { name: 'CSS', info: 'Before I discovered Styling Libraries I used CSS for styling all my web pages.', bg: '#326af1', colStart: 3, colEnd: 4, rowStart: 1, rowEnd: 3 },
+    { name: 'HTML', info: 'HTML is simply important.', bg: '#e4552c', colStart: 4, colEnd: 5, rowStart: 1, rowEnd: 3 },
 ];
 
 
-const LanguageGridItem = ({ name, info, bg, colStart, colEnd, rowStart, rowEnd, isHovered, onHover, onLeave }) => (
+
+const LanguageGridItem = ({ name, info, bg, colStart, colEnd, rowStart, rowEnd, isHovered, onHover, onLeave }: {
+    name: string;
+    info: string;
+    bg: string;
+    colStart: number;
+    colEnd: number;
+    rowStart: number;
+    rowEnd: number;
+    isHovered: boolean;
+    onHover: () => void;
+    onLeave: () => void;
+}) => (
     <GridItem
         position="relative"
         borderRadius={8}
@@ -46,7 +58,7 @@ const LanguageGridItem = ({ name, info, bg, colStart, colEnd, rowStart, rowEnd, 
             {name}
         </Box>
         <Box
-            bg="rgba(0, 0, 0, 0.7)"
+            bg="rgba(0, 0, 0, 0.2)"
             color="white"
             textAlign={'center'}
             maxW={'90%'}
@@ -63,7 +75,8 @@ const LanguageGridItem = ({ name, info, bg, colStart, colEnd, rowStart, rowEnd, 
 );
 
 export function LanguagesDesktop() {
-    const [hoveredIndex, setHoveredIndex] = useState(null);
+    const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+    const { isOpen, onOpen, onClose } = useDisclosure();
 
     return (
         <Box
@@ -72,6 +85,36 @@ export function LanguagesDesktop() {
             alignItems={'center'}
             flexDirection={'column'}
         >
+            <Heading as="h2" size="xl" mb={4}>
+                Most Used {' '}
+                <Box
+                    as="span"
+                    color="primary.base"
+                    position="relative"
+                    onMouseEnter={onOpen}
+                    onMouseLeave={onClose}
+                    zIndex={5}
+                    overflow={'hidden'}
+                    padding={'0 0.2rem'}
+                >
+                    <Box
+                        as="span"
+                        position={'absolute'}
+                        bottom={1}
+                        left={0}
+                        height={isOpen ? '100%' : '50%'}
+                        width={'100%'}
+                        background={'linear-gradient(180deg, transparent 50%, orange 0%)'}
+                        opacity={0.5}
+                        zIndex={-1}
+                        transition={'height 0.3s ease'}
+                    />
+                    Languages
+                </Box>
+            </Heading>
+            <Text fontSize="xx-small" mb={4}>
+                The bigger the box, the more I used the language.
+            </Text>
             <Grid
                 h="394px"
                 w={"700px"}
