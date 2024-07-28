@@ -3,7 +3,7 @@ import { MdEmail } from "react-icons/md";
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import { getHoverEffectStyles, shine, wave } from '../util/Style';
 import Magnetic from '../util/magnetic';
-export function DesktopLanding() {
+export function MobileLanding() {
 
     const socialIcons = [
         {
@@ -34,11 +34,50 @@ export function DesktopLanding() {
         <>
 
             <Flex
-                flexDir={'row'}
+                flexDir={'column'}
                 gap={4}
                 justifyContent={"center"}
+                alignItems={"center"}
                 pt={"2rem"}
+                maxW={"95vw"}
+                pb={"2rem"}
             >
+                <Heading fontSize="3xl" pb="1rem">
+                    Hi, I'm{' '}
+                    <Box
+                        as="span"
+                        color="primary.base"
+                        position="relative"
+                        onMouseEnter={onOpen}
+                        onMouseLeave={onClose}
+                        zIndex={5}
+                        overflow={'hidden'}
+                        padding={'0 0.2rem'}
+                    >
+                        <Box
+                            as="span"
+                            position={'absolute'}
+                            bottom={1}
+                            left={0}
+                            height={isOpen ? '100%' : '50%'}
+                            width={'100%'}
+                            background={'linear-gradient(180deg, transparent 50%, orange 0%)'}
+                            opacity={0.5}
+                            zIndex={-1}
+                            transition={'height 0.3s ease'}
+                        />
+                        David
+                    </Box>
+                    {' '}
+                    <chakra.a
+                        display={"inline-block"}
+                        animation={"wave 2s infinite"}
+                        transition={"transform 0.3s ease-in-out, animation 0.2s ease-in-out"}
+                        sx={wave}
+                    >
+                        👋
+                    </chakra.a>
+                </Heading>
                 <Box>
                     <Image
                         src={"https://media.licdn.com/dms/image/D4E03AQHQ6IkpHCiLGw/profile-displayphoto-shrink_800_800/0/1711049197562?e=1727308800&v=beta&t=LSFmyCflFVw14w3wRmugUfmT8zI7gJQ_vfzkknCzz34"}
@@ -55,6 +94,7 @@ export function DesktopLanding() {
                     <Flex
                         gap={4}
                         pt={"1rem"}
+                        justifyContent={"center"}
                     >
                         {socialIcons.map((socialIcon, index) => (
                             <Magnetic key={index}>
@@ -72,47 +112,10 @@ export function DesktopLanding() {
 
                 </Box>
                 <Box
-                    maxW={"400px"}
-                    textAlign={"left"}
+                    maxW={"95vw"}
+                    textAlign={"center"}
                 >
-                    <Heading fontSize="3xl" pb="1rem">
-                        Hi, I'm{' '}
-                        <Box
-                            as="span"
-                            color="primary.base"
-                            position="relative"
-                            onMouseEnter={onOpen}
-                            onMouseLeave={onClose}
-                            zIndex={5}
-                            overflow={'hidden'}
-                            padding={'0 0.2rem'}
-                        >
-                            <Box
-                                as="span"
-                                position={'absolute'}
-                                bottom={1}
-                                left={0}
-                                height={isOpen ? '100%' : '50%'}
-                                width={'100%'}
-                                background={'linear-gradient(180deg, transparent 50%, orange 0%)'}
-                                opacity={0.5}
-                                zIndex={-1}
-                                transition={'height 0.3s ease'}
-                            />
-                            David
-                        </Box>
-                        {' '}
-                        <chakra.a
-                            _hover={{
-                                animation: "wave 1s infinite",
-                                display: "inline-block",
-                                transition: "wave 0.2s ease-in-out"
-                            }}
-                            sx={wave}
-                        >
-                            👋
-                        </chakra.a>
-                    </Heading>
+
                     <Text>
                         I'm a software engineer from Switzerland 🇨🇭 . I'm passionate about web development and enjoy learning about new technologies and tools.
                     </Text>
@@ -127,7 +130,6 @@ export function DesktopLanding() {
                             target="_blank"
                             rel="noopener noreferrer"
                             position="relative"
-                            _hover={hoverStyles}
                             style={hoverStyles}
                             sx={shine}
                         >
