@@ -1,5 +1,4 @@
-import { Box, Container, Heading, Text, useBreakpointValue } from '@chakra-ui/react'
-import React from 'react'
+import { Box,  } from '@chakra-ui/react'
 import { DesktopLanding } from './home/DesktopLanding'
 import { MobileLanding } from './home/MobileLanding'
 export function Landing() {

@@ -2,7 +2,6 @@ import { Box, Flex, Heading, Icon, Text, Image, chakra, useDisclosure } from '@c
 import { MdEmail } from "react-icons/md";
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import { getHoverEffectStyles, shine, wave } from '../util/Style';
-import { motion } from 'framer-motion';
 import Magnetic from '../util/magnetic';
 export function DesktopLanding() {
 

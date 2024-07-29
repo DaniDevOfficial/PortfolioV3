@@ -1,4 +1,3 @@
-import React from 'react'
 import { Landing } from '../components/Landing'
 import { Skills } from '../components/Skills'
 import { Flex } from '@chakra-ui/react'

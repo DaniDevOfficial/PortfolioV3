@@ -1,5 +1,5 @@
 import { Grid, GridItem, Box, Heading, Text, useDisclosure } from '@chakra-ui/react';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const languages = [
     { name: 'Java', info: 'I used Java during my time at BBW, where I used it to learn programming.', bg: '#f58220', colStart: 1, colEnd: 3, rowStart: 1, rowEnd: 2 },
