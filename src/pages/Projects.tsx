@@ -11,7 +11,7 @@ export function Projects() {
             description: "Description 1",
             longText: "Long text 1",
             technologies: ["Tech 1", "Tech 2"],
-            coverImage: "../../assets/1.png",
+            coverImage: "../../assets/Projects/Cover/InView.png",
             additionalImages: ["Additional image 1", "Additional image 2"],
             github: "Github 1",
             live: "Live 1",
@@ -23,7 +23,7 @@ export function Projects() {
             description: "Description 2",
             longText: "Long text 2",
             technologies: ["Tech 1", "Tech 2"],
-            coverImage: "../../assets/test2.png",
+            coverImage: "../../assets/Projects/Cover/MostLikely.png",
             additionalImages: ["Additional image 1", "Additional image 2"],
             github: "Github 2",
             tags: ["Tag 1", "Tag 2"]
@@ -88,10 +88,10 @@ export function Projects() {
         <Box>
             {isWrapped ? (
                 <Flex direction="column" gap={6}>
-                    {projects.map((project, index) => (
+                    {projects.map((project) => (
                         <Box
                             key={project.id}
-                            mt={index % 2 === 0 ? "75px" : "0"}
+                            h={"300px"}
                         >
                             <ProjectImageHover project={project} />
                         </Box>
