@@ -1,4 +1,4 @@
-import { Image, Text, Link, ListItem, UnorderedList, useMediaQuery, Box } from "@chakra-ui/react"
+import { Image, Text, Link, ListItem, UnorderedList, useMediaQuery, Box, Grid, Flex } from "@chakra-ui/react"
 import { ProjectImageHover } from "../components/Projects/ProjectImageHover"
 import { Project } from "../types/projects"
 export function Projects() {
@@ -7,11 +7,11 @@ export function Projects() {
     const projects: Project[] = [
         {
             id: 1,
-            name: "Project 1",
+            name: "InView",
             description: "Description 1",
             longText: "Long text 1",
             technologies: ["Tech 1", "Tech 2"],
-            coverImage: "https://moyadaniel.com/_astro/onderweg.CqxgaDvo_Z1YOOcF.webp",
+            coverImage: "../../assets/1.png",
             additionalImages: ["Additional image 1", "Additional image 2"],
             github: "Github 1",
             live: "Live 1",
@@ -23,7 +23,7 @@ export function Projects() {
             description: "Description 2",
             longText: "Long text 2",
             technologies: ["Tech 1", "Tech 2"],
-            coverImage: "https://moyadaniel.com/_astro/onderweg.CqxgaDvo_Z1YOOcF.webp",
+            coverImage: "../../assets/test2.png",
             additionalImages: ["Additional image 1", "Additional image 2"],
             github: "Github 2",
             tags: ["Tag 1", "Tag 2"]
@@ -85,34 +85,32 @@ export function Projects() {
         }
     ]
     return (
-        <>
-            <Box
-                w={"50%"}
-            >
-                <ProjectImageHover project={projects[0]} />
-            </Box>
-            
-            {/* Wrap the list of projects in a fragment 
-            <UnorderedList
-                display="grid"
-                gridTemplateColumns="repeat(auto-fit, minmax(250px, 1fr))"
-                gap="50px"
-                maxWidth="90vw"
-                listStyleType="none"
-                padding="0"
-            >
-                {projects.map((project, index) => (
-                    <ListItem
-                        w="calc(50% - 50px)"
-                        key={index}
-                        marginTop={index % 2 === 0 ? "20px" : "0"} // Apply top margin to every even index
-                    >
-                        <ProjectImageHover project={project} />
-                    </ListItem>
-                ))}
-            </UnorderedList>
-                    */}
-        </>
-
+        <Box>
+            {isWrapped ? (
+                <Flex direction="column" gap={6}>
+                    {projects.map((project, index) => (
+                        <Box
+                            key={project.id}
+                            mt={index % 2 === 0 ? "75px" : "0"}
+                        >
+                            <ProjectImageHover project={project} />
+                        </Box>
+                    ))}
+                </Flex>
+            ) : (
+                <Grid templateColumns="repeat(2, 1fr)" gap={6}>
+                    {projects.map((project, index) => (
+                        <Box
+                            key={project.id}
+                            mt={index % 2 === 0 ? "75px" : "0"}
+                            w="calc(100% - 50px)"
+                            h={"300px"}
+                        >
+                            <ProjectImageHover project={project}   />
+                        </Box>
+                    ))}
+                </Grid>
+            )}
+        </Box>
     )
 }
