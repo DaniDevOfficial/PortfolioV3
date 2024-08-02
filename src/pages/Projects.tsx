@@ -1,90 +1,9 @@
-import { Image, Text, Link, ListItem, UnorderedList, useMediaQuery, Box, Grid, Flex, Heading, useDisclosure } from "@chakra-ui/react"
+import { Text, useMediaQuery, Box, Grid, Flex, Heading, useDisclosure } from "@chakra-ui/react"
 import { ProjectImageHover } from "../components/Projects/ProjectImageHover"
-import { Project } from "../types/projects"
+import ProjectsData from "../data/Projects.json"
 export function Projects() {
     const [isWrapped] = useMediaQuery("(max-width: 800px)");
     const { isOpen, onOpen, onClose } = useDisclosure();
-
-    const projects: Project[] = [
-        {
-            id: 1,
-            name: "InView",
-            description: "Description 1",
-            longText: "Long text 1",
-            technologies: ["Tech 1", "Tech 2"],
-            coverImage: "../../assets/Projects/Cover/InView.png",
-            additionalImages: ["Additional image 1", "Additional image 2"],
-            github: "Github 1",
-            live: "Live 1",
-            tags: ["Tag 1", "Tag 2"]
-        },
-        {
-            id: 2,
-            name: "Project 2",
-            description: "Description 2",
-            longText: "Long text 2",
-            technologies: ["Tech 1", "Tech 2"],
-            coverImage: "../../assets/Projects/Cover/MostLikely.png",
-            additionalImages: ["Additional image 1", "Additional image 2"],
-            github: "Github 2",
-            tags: ["Tag 1", "Tag 2"]
-        },
-        {
-            id: 2,
-            name: "Project 2",
-            description: "Description 2",
-            longText: "Long text 2",
-            technologies: ["Tech 1", "Tech 2"],
-            coverImage: "https://moyadaniel.com/_astro/onderweg.CqxgaDvo_Z1YOOcF.webp",
-            additionalImages: ["Additional image 1", "Additional image 2"],
-            github: "Github 2",
-            tags: ["Tag 1", "Tag 2"]
-        },
-        {
-            id: 2,
-            name: "Project 2",
-            description: "Description 2",
-            longText: "Long text 2",
-            technologies: ["Tech 1", "Tech 2"],
-            coverImage: "https://moyadaniel.com/_astro/onderweg.CqxgaDvo_Z1YOOcF.webp",
-            additionalImages: ["Additional image 1", "Additional image 2"],
-            github: "Github 2",
-            tags: ["Tag 1", "Tag 2"]
-        },
-        {
-            id: 2,
-            name: "Project 2",
-            description: "Description 2",
-            longText: "Long text 2",
-            technologies: ["Tech 1", "Tech 2"],
-            coverImage: "https://moyadaniel.com/_astro/onderweg.CqxgaDvo_Z1YOOcF.webp",
-            additionalImages: ["Additional image 1", "Additional image 2"],
-            github: "Github 2",
-            tags: ["Tag 1", "Tag 2"]
-        },
-        {
-            id: 2,
-            name: "Project 2",
-            description: "Description 2",
-            longText: "Long text 2",
-            technologies: ["Tech 1", "Tech 2"],
-            coverImage: "https://moyadaniel.com/_astro/onderweg.CqxgaDvo_Z1YOOcF.webp",
-            additionalImages: ["Additional image 1", "Additional image 2"],
-            github: "Github 2",
-            tags: ["Tag 1", "Tag 2"]
-        },
-        {
-            id: 2,
-            name: "Project 2",
-            description: "Description 2",
-            longText: "Long text 2",
-            technologies: ["Tech 1", "Tech 2"],
-            coverImage: "https://moyadaniel.com/_astro/onderweg.CqxgaDvo_Z1YOOcF.webp",
-            additionalImages: ["Additional image 1", "Additional image 2"],
-            github: "Github 2",
-            tags: ["Tag 1", "Tag 2"]
-        }
-    ]
     return (
         <Box>
             <Box
@@ -126,7 +45,7 @@ export function Projects() {
             </Box>
             {isWrapped ? (
                 <Flex direction="column" gap={6}>
-                    {projects.map((project) => (
+                    {ProjectsData.map((project) => (
                         <Box
                             key={project.id}
                             h={"300px"}
@@ -138,7 +57,7 @@ export function Projects() {
             ) : (
                 <>
                     <Grid templateColumns="repeat(2, 1fr)" gap={6}>
-                        {projects.map((project, index) => (
+                        {ProjectsData.map((project, index) => (
                             <Box
                                 key={project.id}
                                 mt={index % 2 === 0 ? "75px" : "0"}

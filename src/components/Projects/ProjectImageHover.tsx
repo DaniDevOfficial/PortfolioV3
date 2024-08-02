@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Project } from "../../types/projects"
-import { Box, Image } from "@chakra-ui/react"
+import { Box, Image, Skeleton } from "@chakra-ui/react"
 import { Link } from "react-router-dom";
 export function ProjectImageHover({ project }: { project: Project }) {
     const [isHovered, setIsHovered] = useState(false);
+
     return (
         <>
             <Link to={`/projects/${project.id}`}>
@@ -18,6 +19,7 @@ export function ProjectImageHover({ project }: { project: Project }) {
                     onMouseLeave={() => setIsHovered(false)}
                     transition="transform 0.3s"
                     cursor="pointer"
+                    boxShadow={"md"}
                 >
                     <Box
                         transition="transform 0.3s, filter 0.3s"
@@ -32,6 +34,7 @@ export function ProjectImageHover({ project }: { project: Project }) {
                             width="100%"
                             height="100%"
                             objectFit="cover"
+
                         />
                     </Box>
                     <Box

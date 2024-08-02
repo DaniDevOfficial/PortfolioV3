@@ -3,10 +3,8 @@ export interface Project {
     name: string;
     description: string;
     longText: string;
-    technologies: string[];
     coverImage: string;
-    additionalImages: string[];
-    github: string;
+    repo: string;
     live?: string;
     tags: string[];
 }

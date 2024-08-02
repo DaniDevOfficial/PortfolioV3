@@ -2,6 +2,7 @@ import { RouterProvider, createHashRouter } from "react-router-dom";
 import { DefaultLayout } from "./layouts/Default";
 import { HomePage } from "./pages/Home";
 import { Projects } from "./pages/Projects";
+import { Project } from "./pages/Project";
 
 
 
@@ -18,6 +19,10 @@ const router = createHashRouter([
       {
         path: "projects",
         element: <Projects />,
+      },
+      {
+        path: "projects/:projectId",
+        element: <Project />,
       }
     ],
   },

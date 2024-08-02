@@ -1,4 +1,4 @@
-import { Box,  } from '@chakra-ui/react'
+import { Box, } from '@chakra-ui/react'
 import { DesktopLanding } from './home/DesktopLanding'
 import { MobileLanding } from './home/MobileLanding'
 export function Landing() {
@@ -10,7 +10,7 @@ export function Landing() {
             </Box>
             <Box display={{ base: 'none', md: 'block' }}>
 
-                    <DesktopLanding />
+                <DesktopLanding />
             </Box>
         </>
     )
