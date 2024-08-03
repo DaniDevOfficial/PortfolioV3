@@ -4,7 +4,6 @@ import React from 'react';
 export function Tag({ tag }: { tag: string }) {
     return (
         <Box 
-            key={tag} 
             display="inline-block" 
             padding="0.5rem 1rem"
             margin="0.5rem" 

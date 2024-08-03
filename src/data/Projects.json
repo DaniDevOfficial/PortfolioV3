@@ -1,48 +1,67 @@
 [
     {
-        "id": 1,
+        "id": "1",
         "name": "InView",
         "description": "InView is a web application that helps the Users to manage their investments in stocks and other openly traded securities. Its connected to a realtime stock API to calculates the return on investment based on the past investments.",
-        "longText": "Dation Onderweg is a cross-platform mobile application designed for driving school administrators and instructors. It allows them to plan or edit appointments, and access daily or weekly schedules.",
+        "longText": "\n# Wish Package 🤬🤬🤬🔥🔥🔥🥱🥱🥱😣\n\nWish Package is a simple school exercise on how react packa   ges work. It is just a button that makes a sound when pressed.\n\n## Installation\n\nYou can install Wish Package via npm. Make sure you have React installed in your project.\n\n[![npm](https://img.shields.io/npm/v/wish-packagev2)](https://www.npmjs.com/package/wish-packagev2)\n\n\nimport React from 'react';\nimport { WishPackage } from 'wish-packagev2';\n\nfunction App() {\n  return (\n    <div>\n      <WishPackage />\n    </div>\n  );\n}\n\nexport default App;\n\n## What does it do?\n\nIts just a simple Component that plays a sound after the user Clicked a button. \n\nimport React, { useEffect, useState } from 'react';\n\nexport function WishPackage() {\n\n\n    const sound = new Audio('https://firebasestorage.googleapis.com/v0/b/funnysoundswish.appspot.com/o/Sounds%2FUploaded%2FSound.mp3?alt=media&token=4cb9d5b8-d108-4966-b087-28ac9275a81c'); // this sound is loud\n\n    return (\n        <div>\n            <h1>Wish Package Counter</h1>\n            <p>Wish Package Counter</p>\n            <button onClick={() => {\n                alert('Its loud and now your problem');\n                sound.play();\n            }}>DOOOO NOOTTT CLICK FOR THE LOVE OF GOD PLEASE 🤬🤬🤬🤬</button>\n        </div>\n  );\n}\n\n\n\n## Props\n\nWish Package does not currently accept any props.\n\n## License\n\njust use it man (but i wouldnt recoment)\n\n\ncode at: https://github.com/DaniDevOfficial/WishPackage\n",
         "coverImage": "../../assets/Projects/Cover/InView.png",
         "repo": "https://github.com/IDPA-2024b/Nr.7_Investitionsrechner",
         "live": "https://bb-in-view.web.app/",
-        "tags": ["Fullstack", "React", "Node.js", "Firebase", "Express", "FinAPI"]
+        "tags": [
+            "Fullstack",
+            "React",
+            "Node.js",
+            "Firebase",
+            "Express",
+            "FinAPI"
+        ]
     },
     {
-        "id": 2,
+        "id": "2",
         "name": "Project 2",
         "description": "Description 2",
         "longText": "Long text 2",
         "coverImage": "../../assets/Projects/Cover/MostLikely.png",
         "repo": "Github 2",
-        "tags": ["Tag 1", "Tag 2"]
+        "tags": [
+            "Tag 1",
+            "Tag 2"
+        ]
     },
     {
-        "id": 3,
+        "id": "3",
         "name": "Project 2",
         "description": "Description 2",
         "longText": "Long text 2",
         "coverImage": "https://moyadaniel.com/_astro/onderweg.CqxgaDvo_Z1YOOcF.webp",
         "repo": "Github 2",
-        "tags": ["Tag 1", "Tag 2"]
+        "tags": [
+            "Tag 1",
+            "Tag 2"
+        ]
     },
     {
-        "id": 4,
+        "id": "4",
         "name": "Project 2",
         "description": "Description 2",
         "longText": "Long text 2",
         "coverImage": "https://moyadaniel.com/_astro/onderweg.CqxgaDvo_Z1YOOcF.webp",
         "repo": "Github 2",
-        "tags": ["Tag 1", "Tag 2"]
+        "tags": [
+            "Tag 1",
+            "Tag 2"
+        ]
     },
     {
-        "id": 5,
+        "id": "5",
         "name": "Project 2",
         "description": "Description 2",
         "longText": "Long text 2",
         "coverImage": "https://moyadaniel.com/_astro/onderweg.CqxgaDvo_Z1YOOcF.webp",
         "repo": "Github 2",
-        "tags": ["Tag 1", "Tag 2"]
+        "tags": [
+            "Tag 1",
+            "Tag 2"
+        ]
     }
 ]

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Project } from "../../types/projects"
-import { Box, Image, Skeleton } from "@chakra-ui/react"
+import { Box, Image } from "@chakra-ui/react"
 import { Link } from "react-router-dom";
 export function ProjectImageHover({ project }: { project: Project }) {
     const [isHovered, setIsHovered] = useState(false);
