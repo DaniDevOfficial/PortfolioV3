@@ -29,8 +29,8 @@ export function Footer() {
                 justifyContent={{ base: "center", md: "space-between" }}
                 bg={"background.base"}
                 color={"text.base"}
-                height={"10vh"}
                 width={"100%"}
+                my={4}
                 px={{ base: 4, md: 8 }}
                 fontSize={"1.4rem"}
                 flexDirection={{ base: "column", md: "row" }}
