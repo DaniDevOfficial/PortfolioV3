@@ -1,6 +1,6 @@
-import { Text, useMediaQuery, Box, Grid, Flex, Heading, useDisclosure } from "@chakra-ui/react"
-import { ProjectImageHover } from "../components/Projects/ProjectImageHover"
+import { Text, useMediaQuery, Box, Heading, useDisclosure } from "@chakra-ui/react"
 import ProjectsData from "../data/Projects.json"
+import { ProjectsDisplay } from "../components/Ui/ProjectsDisplay";
 export function Projects() {
     const [isWrapped] = useMediaQuery("(max-width: 800px)");
     const { isOpen, onOpen, onClose } = useDisclosure();
@@ -43,33 +43,7 @@ export function Projects() {
                     Here are some of the projects I've worked on. Click on them to learn more about them.
                 </Text>
             </Box>
-            {isWrapped ? (
-                <Flex direction="column" gap={6}>
-                    {ProjectsData.map((project) => (
-                        <Box
-                            key={project.id}
-                            h={"300px"}
-                        >
-                            <ProjectImageHover project={project} />
-                        </Box>
-                    ))}
-                </Flex>
-            ) : (
-                <>
-                    <Grid templateColumns="repeat(2, 1fr)" gap={6}>
-                        {ProjectsData.map((project, index) => (
-                            <Box
-                                key={project.id}
-                                mt={index % 2 === 0 ? "75px" : "0"}
-                                w="calc(100% - 50px)"
-                                h={"300px"}
-                            >
-                                <ProjectImageHover project={project} />
-                            </Box>
-                        ))}
-                    </Grid>
-                </>
-            )}
+            <ProjectsDisplay projects={ProjectsData} />
         </Box>
     )
 }

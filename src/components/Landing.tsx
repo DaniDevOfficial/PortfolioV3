@@ -9,7 +9,6 @@ export function Landing() {
                 <MobileLanding />
             </Box>
             <Box display={{ base: 'none', md: 'block' }}>
-
                 <DesktopLanding />
             </Box>
         </>

@@ -1,5 +1,5 @@
 import {  Box, Heading, useDisclosure, Flex } from '@chakra-ui/react';
-import { CardItems } from '../Ui/CardItem';
+import { CardItems } from '../util/CardItem';
 
 const languages = [
     { name: 'Java',  bg: '#f58220',},

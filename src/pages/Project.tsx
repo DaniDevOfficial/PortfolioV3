@@ -5,7 +5,7 @@ import Projects from "../data/Projects.json"
 import { Content } from '../components/project/Content';
 import { Box, Flex, Grid, Heading, useMediaQuery } from '@chakra-ui/react';
 import { Project as ProjectType } from '../types/projects';
-import { ProjectImageHover } from '../components/Projects/ProjectImageHover';
+import { ProjectImageHover } from '../components/Ui/ProjectImageHover';
 export function Project() {
     const [randomProjects, setRandomProjects] = useState<ProjectType[]>([]);
     const id = useParams<{ projectId: string }>().projectId;
