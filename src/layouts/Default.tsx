@@ -9,7 +9,7 @@ export function DefaultLayout() {
 
     return (
         <>
-            <chakra.div width={"100%"} bg={"background.base"} >
+            <chakra.div width={"100%"} bg={"background.base"} pb={"10px"} >
                 <Navbar />
                 {/* hr  */}
                 <chakra.hr

@@ -3,6 +3,7 @@ import { MdEmail } from "react-icons/md";
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import { getHoverEffectStyles, shine, wave } from '../util/Style';
 import Magnetic from '../util/magnetic';
+import Slide from '../lib/Slide';
 export function DesktopLanding() {
 
     const socialIcons = [
@@ -39,42 +40,44 @@ export function DesktopLanding() {
                 justifyContent={"center"}
                 pt={"2rem"}
             >
-                <Box>
-                    <Image
-                        src={"https://media.licdn.com/dms/image/D4E03AQHQ6IkpHCiLGw/profile-displayphoto-shrink_800_800/0/1711049197562?e=1727308800&v=beta&t=LSFmyCflFVw14w3wRmugUfmT8zI7gJQ_vfzkknCzz34"}
-                        alt={"placeholder"}
-                        borderRadius={"3xl"}
-                        width={"300px"}
-                        transition={"transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out"}
-                        _hover={{
-                            transform: "scale(1.01) translate(-2px, 2px)",
-                            boxShadow: "0 10px 20px rgba(0, 0, 0, 0.25)",
-                        }}
-                    />
+                <Slide from={"left"}>
+                    <Box>
+                        <Image
+                            src={"https://media.licdn.com/dms/image/D4E03AQHQ6IkpHCiLGw/profile-displayphoto-shrink_800_800/0/1711049197562?e=1727308800&v=beta&t=LSFmyCflFVw14w3wRmugUfmT8zI7gJQ_vfzkknCzz34"}
+                            alt={"placeholder"}
+                            borderRadius={"3xl"}
+                            width={"300px"}
+                            transition={"transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out"}
+                            _hover={{
+                                transform: "scale(1.01) translate(-2px, 2px)",
+                                boxShadow: "0 10px 20px rgba(0, 0, 0, 0.25)",
+                            }}
+                        />
 
-                    <Flex
-                        gap={4}
-                        pt={"1rem"}
-                    >
-                        {socialIcons.map((socialIcon, index) => (
-                            <Magnetic key={index}>
-                                <a href={socialIcon.url} key={index} target="_blank" rel="noopener noreferrer">
-                                    <Icon
-                                        as={socialIcon.icon}
-                                        height={"30px"}
-                                        width={"auto"}
-                                        transition={"color 0.3s ease-in-out"}
-                                        _hover={{
-                                            color: "accent.base"
-                                        }}
-                                    />
-                                </a>
-                            </Magnetic>
-                        ))}
+                        <Flex
+                            gap={4}
+                            pt={"1rem"}
+                        >
+                            {socialIcons.map((socialIcon, index) => (
+                                <Magnetic key={index}>
+                                    <a href={socialIcon.url} key={index} target="_blank" rel="noopener noreferrer">
+                                        <Icon
+                                            as={socialIcon.icon}
+                                            height={"30px"}
+                                            width={"auto"}
+                                            transition={"color 0.3s ease-in-out"}
+                                            _hover={{
+                                                color: "accent.base"
+                                            }}
+                                        />
+                                    </a>
+                                </Magnetic>
+                            ))}
 
-                    </Flex>
+                        </Flex>
 
-                </Box>
+                    </Box>
+                </Slide>
                 <Box
                     maxW={"400px"}
                     textAlign={"left"}
