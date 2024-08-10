@@ -4,6 +4,7 @@ import { Box, Button, Flex, Heading, Icon, Text, Image, useDisclosure } from '@c
 import { Tag } from '../util/Tag';
 import Magnetic from '../util/magnetic';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import Slide from '../lib/Slide';
 
 // Header Component
 function ProjectHeader({ name, isOpen, onOpen, onClose }: { name: string, isOpen: boolean, onOpen: () => void, onClose: () => void }) {
@@ -40,7 +41,7 @@ function ProjectHeader({ name, isOpen, onOpen, onClose }: { name: string, isOpen
 // Image Component
 function ProjectImage({ src, alt }: { src: string, alt: string }) {
     return (
-        <Box mt={4} minW={{ base: "50%", lg: "50%" }} maxW={{ lg: "50%" }}>
+        <Box mt={4} minW={{ base: "100%", lg: "100%" }} maxW={{ lg: "50%" }}>
             <Image
                 src={src}
                 alt={alt}
@@ -124,17 +125,27 @@ export function Landing({ project }: { project: Project }) {
             </Box>
             <Box display={{ base: 'none', lg: 'block' }}>
                 {/* <DesktopLanding /> */}
-                <ProjectHeader name={project.name} isOpen={isOpen} onOpen={onOpen} onClose={onClose} />
+                <Slide from='left'>
+                    <ProjectHeader name={project.name} isOpen={isOpen} onOpen={onOpen} onClose={onClose} />
+                </Slide>
                 <Flex justifyContent="space-between" gap={6}>
-                    <ProjectImage src={project.coverImage} alt={project.name} />
+                    <Slide from='left' delay={0.1}>
+                        <ProjectImage src={project.coverImage} alt={project.name} />
+                    </Slide>
                     <Box>
-                        <ProjectDescription description={project.description} />
-                        <ProjectTags tags={project.tags} />
+                        <Slide from='right' delay={0.1}>
+                            <ProjectDescription description={project.description} />
+                        </Slide>
+                        <Slide from='right' delay={0.2}>
+                            <ProjectTags tags={project.tags} />
+                        </Slide>
                     </Box>
                 </Flex>
-                <Flex justifyContent="left">
-                    <ProjectLinks live={project.live} repo={project.repo} />
-                </Flex>
+                <Slide from='left' delay={0.2}>
+                    <Flex justifyContent="left">
+                        <ProjectLinks live={project.live} repo={project.repo} />
+                    </Flex>
+                </Slide>
             </Box>
         </>
     );

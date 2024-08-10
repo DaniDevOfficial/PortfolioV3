@@ -1,9 +1,8 @@
 import { FeaturedProjects } from '../components/FeaturedProjects'
 import { Landing } from '../components/Landing'
 import { Skills } from '../components/Skills'
-import { Flex, Heading } from '@chakra-ui/react'
+import { Flex } from '@chakra-ui/react'
 import Projects from '../data/Projects.json'
-import Slide from '../components/lib/Slide'
 export function HomePage() {
 
     return (

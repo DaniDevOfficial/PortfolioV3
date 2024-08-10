@@ -40,8 +40,8 @@ export function DesktopLanding() {
                 justifyContent={"center"}
                 pt={"2rem"}
             >
-                <Slide from={"left"}>
-                    <Box>
+                <Box>
+                    <Slide from={"left"}>
                         <Image
                             src={"https://media.licdn.com/dms/image/D4E03AQHQ6IkpHCiLGw/profile-displayphoto-shrink_800_800/0/1711049197562?e=1727308800&v=beta&t=LSFmyCflFVw14w3wRmugUfmT8zI7gJQ_vfzkknCzz34"}
                             alt={"placeholder"}
@@ -53,7 +53,9 @@ export function DesktopLanding() {
                                 boxShadow: "0 10px 20px rgba(0, 0, 0, 0.25)",
                             }}
                         />
+                    </Slide>
 
+                    <Slide from='left'  delay={0.1}>
                         <Flex
                             gap={4}
                             pt={"1rem"}
@@ -73,75 +75,80 @@ export function DesktopLanding() {
                                     </a>
                                 </Magnetic>
                             ))}
-
                         </Flex>
+                    </Slide>
 
-                    </Box>
-                </Slide>
+                </Box>
                 <Box
                     maxW={"400px"}
                     textAlign={"left"}
                 >
-                    <Heading fontSize="3xl" pb="1rem">
-                        Hi, I'm{' '}
-                        <Box
-                            as="span"
-                            color="primary.base"
-                            position="relative"
-                            onMouseEnter={onOpen}
-                            onMouseLeave={onClose}
-                            zIndex={5}
-                            overflow={'hidden'}
-                            padding={'0 0.2rem'}
-                        >
+                    <Slide from='right'>
+                        <Heading fontSize="3xl" pb="1rem">
+                            Hi, I'm{' '}
                             <Box
                                 as="span"
-                                position={'absolute'}
-                                bottom={1}
-                                left={0}
-                                height={isOpen ? '100%' : '50%'}
-                                width={'100%'}
-                                background={'linear-gradient(180deg, transparent 50%, orange 0%)'}
-                                opacity={0.5}
-                                zIndex={-1}
-                                transition={'height 0.3s ease'}
-                            />
-                            David
-                        </Box>
-                        {' '}
-                        <chakra.a
-                            _hover={{
-                                animation: "wave 1s infinite",
-                                display: "inline-block",
-                                transition: "wave 0.2s ease-in-out"
-                            }}
-                            sx={wave}
-                        >
-                            👋
-                        </chakra.a>
-                    </Heading>
-                    <Text>
-                        I'm a software engineer from Switzerland 🇨🇭 . I'm passionate about web development and enjoy learning about new technologies and tools.
-                    </Text>
+                                color="primary.base"
+                                position="relative"
+                                onMouseEnter={onOpen}
+                                onMouseLeave={onClose}
+                                zIndex={5}
+                                overflow={'hidden'}
+                                padding={'0 0.2rem'}
+                            >
+                                <Box
+                                    as="span"
+                                    position={'absolute'}
+                                    bottom={1}
+                                    left={0}
+                                    height={isOpen ? '100%' : '50%'}
+                                    width={'100%'}
+                                    background={'linear-gradient(180deg, transparent 50%, orange 0%)'}
+                                    opacity={0.5}
+                                    zIndex={-1}
+                                    transition={'height 0.3s ease'}
+                                />
+                                David
+                            </Box>
+                            {' '}
+                            <chakra.a
+                                _hover={{
+                                    animation: "wave 1s infinite",
+                                    display: "inline-block",
+                                    transition: "wave 0.2s ease-in-out"
+                                }}
+                                sx={wave}
+                            >
+                                👋
+                            </chakra.a>
+                        </Heading>
+                    </Slide>
+                    <Slide from='right' delay={0.1} >
+                        <Text>
+                            I'm a software engineer from Switzerland 🇨🇭 . I'm passionate about web development and enjoy learning about new technologies and tools.
+                        </Text>
+                    </Slide>
 
-                    <Text
-                        pt={"1rem"}
-                    >
-                        I'm currently working as a Intern at {' '}
-                        <chakra.a
-                            href={"https://www.andeo.ch"}
-                            color={"#3d92cf"}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            position="relative"
-                            _hover={hoverStyles}
-                            style={hoverStyles}
-                            sx={shine}
-                        >
-                            Andeo
-                        </chakra.a>
-                        .
-                    </Text>
+                        <Slide from='right' delay={0.2}>
+                            <Text
+                                pt={"1rem"}
+                            >
+                                I'm currently working as a Intern at {' '}
+                                <chakra.a
+                                    href={"https://www.andeo.ch"}
+                                    color={"#3d92cf"}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    position="relative"
+                                    _hover={hoverStyles}
+                                    style={hoverStyles}
+                                    sx={shine}
+                                >
+                                    Andeo
+                                </chakra.a>
+                                .
+                            </Text>
+                        </Slide>
                 </Box>
             </Flex >
         </>
