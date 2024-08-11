@@ -17,7 +17,7 @@ export function DefaultLayout() {
                     width={"100%"}
                     backgroundColor={"primary.50"}
                 />
-                <chakra.div minHeight={"100vh"} width={"100%"}  >
+                <chakra.div minHeight={"100vh"} width={"100%"} overflowY={"hidden"}>
                 
                     <chakra.main marginBottom={"2rem"} >
                         <Container maxW={"container.xl"} color="#141414" fontSize={"1.4rem"}  px={"2.5vw"} >

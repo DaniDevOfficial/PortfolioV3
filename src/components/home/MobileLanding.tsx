@@ -3,6 +3,7 @@ import { MdEmail } from "react-icons/md";
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import { getHoverEffectStyles, shine, wave } from '../util/Style';
 import Magnetic from '../util/magnetic';
+import Slide from '../lib/Slide';
 export function MobileLanding() {
 
     const socialIcons = [
@@ -42,73 +43,78 @@ export function MobileLanding() {
                 maxW={"95vw"}
                 pb={"2rem"}
             >
-                <Heading fontSize="3xl" pb="1rem">
-                    Hi, I'm{' '}
-                    <Box
-                        as="span"
-                        color="primary.base"
-                        position="relative"
-                        onMouseEnter={onOpen}
-                        onMouseLeave={onClose}
-                        zIndex={5}
-                        overflow={'hidden'}
-                        padding={'0 0.2rem'}
-                    >
+                <Slide>
+                    <Heading fontSize="3xl" pb="1rem">
+                        Hi, I'm{' '}
                         <Box
                             as="span"
-                            position={'absolute'}
-                            bottom={1}
-                            left={0}
-                            height={isOpen ? '100%' : '50%'}
-                            width={'100%'}
-                            background={'linear-gradient(180deg, transparent 50%, orange 0%)'}
-                            opacity={0.5}
-                            zIndex={-1}
-                            transition={'height 0.3s ease'}
-                        />
-                        David
-                    </Box>
-                    {' '}
-                    <chakra.a
-                        display={"inline-block"}
-                        animation={"wave 2s infinite"}
-                        transition={"transform 0.3s ease-in-out, animation 0.2s ease-in-out"}
-                        sx={wave}
-                    >
-                        👋
-                    </chakra.a>
-                </Heading>
+                            color="primary.base"
+                            position="relative"
+                            onMouseEnter={onOpen}
+                            onMouseLeave={onClose}
+                            zIndex={5}
+                            overflow={'hidden'}
+                            padding={'0 0.2rem'}
+                        >
+                            <Box
+                                as="span"
+                                position={'absolute'}
+                                bottom={1}
+                                left={0}
+                                height={isOpen ? '100%' : '50%'}
+                                width={'100%'}
+                                background={'linear-gradient(180deg, transparent 50%, orange 0%)'}
+                                opacity={0.5}
+                                zIndex={-1}
+                                transition={'height 0.3s ease'}
+                            />
+                            David
+                        </Box>
+                        {' '}
+                        <chakra.a
+                            display={"inline-block"}
+                            animation={"wave 2s infinite"}
+                            transition={"transform 0.3s ease-in-out, animation 0.2s ease-in-out"}
+                            sx={wave}
+                        >
+                            👋
+                        </chakra.a>
+                    </Heading>
+                </Slide>
                 <Box>
-                    <Image
-                        src={"https://media.licdn.com/dms/image/D4E03AQHQ6IkpHCiLGw/profile-displayphoto-shrink_800_800/0/1711049197562?e=1727308800&v=beta&t=LSFmyCflFVw14w3wRmugUfmT8zI7gJQ_vfzkknCzz34"}
-                        alt={"placeholder"}
-                        borderRadius={"3xl"}
-                        width={"300px"}
-                        transition={"transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out"}
-                        _hover={{
-                            transform: "scale(1.01) translate(-2px, 2px)",
-                            boxShadow: "0 10px 20px rgba(0, 0, 0, 0.25)",
-                        }}
-                    />
+                    <Slide from='left' delay={0.1}>
+                        <Image
+                            src={"https://media.licdn.com/dms/image/D4E03AQHQ6IkpHCiLGw/profile-displayphoto-shrink_800_800/0/1711049197562?e=1727308800&v=beta&t=LSFmyCflFVw14w3wRmugUfmT8zI7gJQ_vfzkknCzz34"}
+                            alt={"placeholder"}
+                            borderRadius={"3xl"}
+                            width={"300px"}
+                            transition={"transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out"}
+                            _hover={{
+                                transform: "scale(1.01) translate(-2px, 2px)",
+                                boxShadow: "0 10px 20px rgba(0, 0, 0, 0.25)",
+                            }}
+                        />
+                    </Slide>
 
-                    <Flex
-                        gap={4}
-                        pt={"1rem"}
-                        justifyContent={"center"}
-                    >
-                        {socialIcons.map((socialIcon, index) => (
-                            <Magnetic key={index}>
-                                <a href={socialIcon.url} key={index} target="_blank" rel="noopener noreferrer">
-                                    <Icon
-                                        as={socialIcon.icon}
-                                        height={"30px"}
-                                        width={"auto"}
-                                    />
-                                </a>
-                            </Magnetic>
-                        ))}
-
-                    </Flex>
+                    <Slide>
+                        <Flex
+                            gap={4}
+                            pt={"1rem"}
+                            justifyContent={"center"}
+                        >
+                            {socialIcons.map((socialIcon, index) => (
+                                <Magnetic key={index}>
+                                    <a href={socialIcon.url} key={index} target="_blank" rel="noopener noreferrer">
+                                        <Icon
+                                            as={socialIcon.icon}
+                                            height={"30px"}
+                                            width={"auto"}
+                                        />
+                                    </a>
+                                </Magnetic>
+                            ))}
+                        </Flex>
+                    </Slide>
 
                 </Box>
                 <Box
@@ -116,27 +122,31 @@ export function MobileLanding() {
                     textAlign={"center"}
                 >
 
-                    <Text>
-                        I'm a software engineer from Switzerland 🇨🇭 . I'm passionate about web development and enjoy learning about new technologies and tools.
-                    </Text>
+                    <Slide from='left'>
+                        <Text>
+                            I'm a software engineer from Switzerland 🇨🇭 . I'm passionate about web development and enjoy learning about new technologies and tools.
+                        </Text>
+                    </Slide>
 
-                    <Text
-                        pt={"1rem"}
-                    >
-                        I'm currently working as a Intern at {' '}
-                        <chakra.a
-                            href={"https://www.andeo.ch"}
-                            color={"#3d92cf"}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            position="relative"
-                            style={hoverStyles}
-                            sx={shine}
+                    <Slide from='right'>
+                        <Text
+                            pt={"1rem"}
                         >
-                            Andeo
-                        </chakra.a>
-                        .
-                    </Text>
+                            I'm currently working as a Intern at {' '}
+                            <chakra.a
+                                href={"https://www.andeo.ch"}
+                                color={"#3d92cf"}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                position="relative"
+                                style={hoverStyles}
+                                sx={shine}
+                            >
+                                Andeo
+                            </chakra.a>
+                            .
+                        </Text>
+                    </Slide>
                 </Box>
             </Flex >
         </>

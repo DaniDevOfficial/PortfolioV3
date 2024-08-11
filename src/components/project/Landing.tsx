@@ -115,13 +115,23 @@ export function Landing({ project }: { project: Project }) {
         <>
             <Box display={{ base: 'block', lg: 'none' }}>
                 {/* <MobileLanding /> */}
-                <ProjectHeader name={project.name} isOpen={isOpen} onOpen={onOpen} onClose={onClose} />
+                <Slide from='bottom'>
+                    <ProjectHeader name={project.name} isOpen={isOpen} onOpen={onOpen} onClose={onClose} />
+                </Slide>
                 <Flex justifyContent="space-between" gap={6} flexDir={"column"}>
-                    <ProjectImage src={project.coverImage} alt={project.name} />
-                    <ProjectTags tags={project.tags} />
-                    <ProjectDescription description={project.description} />
+                    <Slide from='left' delay={0.1}>
+                        <ProjectImage src={project.coverImage} alt={project.name} />
+                    </Slide>
+                    <Slide from='right'>
+                        <ProjectTags tags={project.tags} />
+                    </Slide>
+                    <Slide from='left' delay={0.1}>
+                        <ProjectDescription description={project.description} />
+                    </Slide>
                 </Flex>
-                <ProjectLinks live={project.live} repo={project.repo} />
+                <Slide from='right'>
+                    <ProjectLinks live={project.live} repo={project.repo} />
+                </Slide>
             </Box>
             <Box display={{ base: 'none', lg: 'block' }}>
                 {/* <DesktopLanding /> */}

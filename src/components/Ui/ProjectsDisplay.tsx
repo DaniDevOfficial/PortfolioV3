@@ -11,13 +11,15 @@ export function ProjectsDisplay({ projects }: { projects: Project[] }) {
         <>
             {isWrapped ? (
                 <Flex direction="column" gap={6}>
-                    {projects.map((project) => (
-                        <Box
-                            key={project.id}
-                            h={"300px"}
-                        >
-                            <ProjectImageHover project={project} />
-                        </Box>
+                    {projects.map((project, index) => (
+                        <Slide from={index % 2 == 0 ? 'left' : 'right'}>
+                            <Box
+                                key={project.id}
+                                h={"300px"}
+                            >
+                                <ProjectImageHover project={project} />
+                            </Box>
+                        </Slide>
                     ))}
                 </Flex>
             ) : (
