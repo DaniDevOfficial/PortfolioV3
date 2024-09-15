@@ -6,7 +6,6 @@ import Magnetic from '../util/magnetic';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import Slide from '../lib/Slide';
 
-// Header Component
 function ProjectHeader({ name, isOpen, onOpen, onClose }: { name: string, isOpen: boolean, onOpen: () => void, onClose: () => void }) {
     return (
         <Heading as="h1" fontSize={"xxx-large"} textAlign={"center"} mt={6}>
@@ -38,21 +37,25 @@ function ProjectHeader({ name, isOpen, onOpen, onClose }: { name: string, isOpen
     );
 }
 
-// Image Component
 function ProjectImage({ src, alt }: { src: string, alt: string }) {
     return (
-        <Box mt={4} minW={{ base: "100%", lg: "100%" }} maxW={{ lg: "50%" }}>
+        <Box  mt={4} minW={{ base: "100%", lg: "100%" }} maxW={{ lg: "50%" }}>
             <Image
                 src={src}
                 alt={alt}
                 borderRadius={"1rem"}
                 boxShadow={"xl"}
+                position={'relative'}
+                transition={"transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out"}
+                _hover={{
+                    transform: "scale(1.01) translate(5px, 5px)",
+                    boxShadow: "0 10px 20px rgba(0, 0, 0, 0.25)",
+                }}
             />
         </Box>
     );
 }
 
-// Tags Component
 function ProjectTags({ tags }: { tags: string[] }) {
     return (
         <Flex flexWrap="wrap" justifyContent={{ base: "center", lg: "flex-start" }}>
@@ -65,7 +68,6 @@ function ProjectTags({ tags }: { tags: string[] }) {
     );
 }
 
-// Description Component
 function ProjectDescription({ description }: { description: string }) {
     return (
         <Box>
@@ -76,7 +78,6 @@ function ProjectDescription({ description }: { description: string }) {
     );
 }
 
-// Links Component
 function ProjectLinks({ live, repo }: { live?: string, repo: string }) {
     return (
         <Flex my={6} gap={4} alignItems={"center"} justifyContent={"center"}>
@@ -107,7 +108,6 @@ function ProjectLinks({ live, repo }: { live?: string, repo: string }) {
     );
 }
 
-// Main Landing Component
 export function Landing({ project }: { project: Project }) {
     const { isOpen, onOpen, onClose } = useDisclosure();
 

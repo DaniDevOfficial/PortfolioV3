@@ -4,6 +4,7 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import { getHoverEffectStyles, shine, wave } from '../util/Style';
 import Magnetic from '../util/magnetic';
 import Slide from '../lib/Slide';
+import Bischof  from '../../assets/Util/DavidBischof.jpg'
 export function MobileLanding() {
 
     const socialIcons = [
@@ -84,7 +85,7 @@ export function MobileLanding() {
                 <Box>
                     <Slide from='left' delay={0.1}>
                         <Image
-                            src={"https://media.licdn.com/dms/image/D4E03AQHQ6IkpHCiLGw/profile-displayphoto-shrink_800_800/0/1711049197562?e=1727308800&v=beta&t=LSFmyCflFVw14w3wRmugUfmT8zI7gJQ_vfzkknCzz34"}
+                            src={Bischof}
                             alt={"placeholder"}
                             borderRadius={"3xl"}
                             width={"300px"}
