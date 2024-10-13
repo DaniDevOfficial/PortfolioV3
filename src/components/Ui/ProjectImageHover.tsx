@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import {Project} from "../../types/projects"
 import {Box, Image} from "@chakra-ui/react"
 import {Link} from "react-router-dom";
@@ -97,7 +97,7 @@ export function ProjectImageHover({project}: { project: Project }) {
                                         px={2}
                                         py={1}
                                         border="2px solid"
-                                        borderColor="primary.600"
+                                        borderColor={project.colorScheme || "gray.500"}
                                         color="white"
                                         borderRadius="md"
                                         fontSize="sm"

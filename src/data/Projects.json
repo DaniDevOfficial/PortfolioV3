@@ -7,6 +7,7 @@
         "coverImage": "../../assets/Projects/Cover/InView.png",
         "repo": "https://github.com/IDPA-2024b/Nr.7_Investitionsrechner",
         "live": "https://bb-in-view.web.app/",
+        "colorScheme": "teal.400",
         "tags": [
             "Fullstack",
             "React",
@@ -24,6 +25,7 @@
         "coverImage": "../../assets/Projects/Cover/MostLikely.png",
         "repo": "https://github.com/DaniDevOfficial/MostLikelyBackend",
         "live": "https://mostlikelywish.web.app/",
+        "colorScheme": "pink.300",
         "tags": [
             "Fullstack",
             "React",

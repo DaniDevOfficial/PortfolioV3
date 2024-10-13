@@ -6,5 +6,6 @@ export interface Project {
     coverImage: string;
     repo: string;
     live?: string;
+    colorScheme?: string;
     tags: string[];
 }
