@@ -1,7 +1,17 @@
 import { Flex, chakra, Text } from '@chakra-ui/react'
-import { Link } from 'react-router-dom'
+import {Link, useLocation} from 'react-router-dom'
+import {useEffect, useState} from "react";
 
 export function Navbar() {
+
+    const [currentActive, setCurrentActive] = useState<string|undefined>()
+
+    const location = useLocation();
+
+    useEffect(() => {
+        setCurrentActive(location.pathname);
+    }, [location.pathname]);
+
     const routes = [
         {
             name: "Home",
@@ -45,6 +55,9 @@ export function Navbar() {
                                         cursor={"pointer"}
                                         _hover={{ letterSpacing: "0.2em", fontWeight: "bold", color: "accent.base" }}
                                         transition="transform 0.3s ease-in-out, letter-spacing 0.2s ease-in-out, font-weight 0.2s ease-in-out, color 0.2s ease-in-out"
+                                        letterSpacing={currentActive === route.path ? 'bold' : 'normal'}
+                                        fontWeight={currentActive === route.path ? 'bold' : 'normal'}
+                                        color={currentActive === route.path ? 'primary.base' : 'text.base'}
                                     >
                                         {route.name}
                                     </Text>

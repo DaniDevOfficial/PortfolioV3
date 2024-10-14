@@ -20,7 +20,7 @@
     {
         "id": "2",
         "name": "MostLikely",
-        "description": "MostLikely is a full-stack web app built with React and Express.js. It’s a multiplayer game featuring a simple yet fun game loop, where players create and answer questions about who is \"most likely\" to do something. Real-time interactionsbetween players are handled by socket.io.",
+        "description": "MostLikely is a full-stack web app built with React and Express.js. It’s a multiplayer game featuring a simple yet fun game loop, where players create and answer questions about who is \"most likely\" to do something. Real-time interaction between players is handled through socket.io.",
         "longText": "Long text 2",
         "coverImage": "../../assets/Projects/Cover/MostLikely.png",
         "repo": "https://github.com/DaniDevOfficial/MostLikelyBackend",
@@ -38,7 +38,7 @@
         "id": "3",
         "name": "Project 2",
         "description": "Description 2",
-        "longText": "Long text 2",
+        "longText": "teasdfxt text 2",
         "coverImage": "https://moyadaniel.com/_astro/onderweg.CqxgaDvo_Z1YOOcF.webp",
         "repo": "Github 2",
         "tags": [
@@ -48,9 +48,9 @@
     },
     {
         "id": "4",
-        "name": "Project 2",
+        "name": "Project 3",
         "description": "Description 2",
-        "longText": "Long text 2",
+        "longText": "Long teasdfxt 2",
         "coverImage": "https://moyadaniel.com/_astro/onderweg.CqxgaDvo_Z1YOOcF.webp",
         "repo": "Github 2",
         "tags": [
@@ -60,9 +60,9 @@
     },
     {
         "id": "5",
-        "name": "Project 2",
+        "name": "Project 4",
         "description": "Description 2",
-        "longText": "Long text 2",
+        "longText": "Long teasdfxt 2",
         "coverImage": "https://moyadaniel.com/_astro/onderweg.CqxgaDvo_Z1YOOcF.webp",
         "repo": "Github 2",
         "tags": [

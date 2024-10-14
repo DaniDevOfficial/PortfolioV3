@@ -8,7 +8,7 @@ export function ProjectImageHover({project}: { project: Project }) {
 
     return (
         <>
-            <Link to={`/projects/${project.id}`}>
+            <Link to={`/projects/${project.name}`}>
                 <Box
                     height={"100%"}
                     width={"100%"}
@@ -18,10 +18,14 @@ export function ProjectImageHover({project}: { project: Project }) {
                     borderRadius={"md"}
                     onMouseEnter={() => setIsHovered(true)}
                     onMouseLeave={() => setIsHovered(false)}
-                    transition="transform 0.3s"
+                    transition="transform 0.3s, box-shadow 0.3s"
                     cursor="pointer"
                     boxShadow={"md"}
-                >
+
+                    _hover={{
+                        transform: "scale(1.02)",
+                        boxShadow: "0 20px 20px rgba(0, 0, 0, 0.25)",
+                    }}                >
                     <Box
                         transition="transform 0.3s"
                         transform={isHovered ? "scale(1.1)" : "scale(1)"}
@@ -36,7 +40,7 @@ export function ProjectImageHover({project}: { project: Project }) {
                             width: "100%",
                             height: "100%",
                             bgGradient: "linear-gradient(180deg, transparent 60%, rgba(0, 0, 0, 0.6) 100%)",
-                            transition: "opacity 0.4s ease",
+                            transition: "opacity 0.3s ease",
                             opacity: isHovered ? 0.1 : 1,
                             zIndex: 1,
                         }}
@@ -48,7 +52,7 @@ export function ProjectImageHover({project}: { project: Project }) {
                             width: "100%",
                             height: "100%",
                             bgGradient: "linear-gradient(180deg, transparent 20%, rgba(0, 0, 0, 1) 100%)",
-                            transition: "opacity 0.4s ease",
+                            transition: "opacity 0.3s ease",
                             opacity: isHovered ? 1 : 0.3,
                             zIndex: 1,
                         }}

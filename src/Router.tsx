@@ -22,7 +22,7 @@ const router = createHashRouter([
         element: <Projects />,
       },
       {
-        path: "projects/:projectId",
+        path: "projects/:projectName",
         element: <Project />,
       },
       {

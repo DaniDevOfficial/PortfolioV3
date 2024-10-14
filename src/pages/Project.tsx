@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Landing } from '../components/project/Landing'
 import { useParams } from 'react-router-dom'
 import Projects from "../data/Projects.json"
 import { Content } from '../components/project/Content';
-import { Box, Flex, Grid, Heading, useMediaQuery } from '@chakra-ui/react';
-import { Project as ProjectType } from '../types/projects';
+import { Box, chakra, Flex, Grid, Heading, useMediaQuery } from '@chakra-ui/react';
+import {Project as ProjectType} from '../types/projects';
 import { ProjectImageHover } from '../components/Ui/ProjectImageHover';
 export function Project() {
     const [randomProjects, setRandomProjects] = useState<ProjectType[]>([]);
-    const id = useParams<{ projectId: string }>().projectId;
+    const [thisProject, setThisProject] = useState<ProjectType|undefined>()
+    const name = useParams<{ projectName: string }>().projectName;
     const [isWrapped] = useMediaQuery("(max-width: 1000px)");
-
     useEffect(() => {
 
         function randomProjects(amount: number) {
@@ -19,7 +19,7 @@ export function Project() {
             const randomProjects = [];
             while (randomProjects.length < amount) {
                 const randomIndex = Math.floor(Math.random() * projects.length);
-                if (projects[randomIndex].id === id) continue;
+                if (projects[randomIndex].id === thisProject?.name) continue;
                 randomProjects.push(projects[randomIndex]);
                 projects.splice(randomIndex, 1);
             }
@@ -27,22 +27,18 @@ export function Project() {
         }
 
         setRandomProjects(randomProjects(2));
+    setThisProject(Projects.find(p => p.name.toLowerCase() === name?.toLowerCase()))
 
-    }, []);
+    }, [name]);
 
 
-    if (!id) return null;
-    const thisProject = Projects.find(p => p.id === id)
+    if (!name) return null;
 
     if (!thisProject) return null;
-    // find 3 random projects
-
-
 
     return (
         <>
             <Landing project={thisProject} />
-            {/* hr */}
             <Box
                 height={"1px"}
                 width={"100%"}
@@ -50,16 +46,14 @@ export function Project() {
                 margin={"2rem 0"}
             />
             <Content mdFormatedText={thisProject.longText} />
-            {/* hr */}
             <Box
                 height={"1px"}
                 width={"100%"}
                 backgroundColor={"primary.200"}
                 margin={"2rem 0"}
             />
-            {/* 3 random projects */}
-            <Heading as="h2" size="lg" m={6} textAlign={"center"}>
-                Other Projects
+            <Heading as="h2" size="lg" m={6} textAlign={"center"} >
+                Other <chakra.a color={"primary.base"}> Projects</chakra.a>
             </Heading>
             <Box
                 display={"flex"}
