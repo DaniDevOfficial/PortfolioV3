@@ -125,7 +125,7 @@ export function MobileLanding() {
 
                     <Slide from='left'>
                         <Text>
-                            I'm a software engineer from Switzerland 🇨🇭 . I'm passionate about web development and enjoy learning about new technologies and tools.
+                            I'm a software engineer from Switzerland 🇨🇭 . I'm interested in web development, focusing on the backend and enjoy learning about new technologies.
                         </Text>
                     </Slide>
 
