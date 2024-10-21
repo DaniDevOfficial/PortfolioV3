@@ -51,7 +51,7 @@ export function DesktopLanding() {
                             transition={"transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out"}
                             _hover={{
                                 transform: "scale(1.01) translate(-2px, 2px)",
-                                boxShadow: "0 10px 20px rgba(0, 0, 0, 0.25)",
+                                boxShadow: "0 10px 10px rgba(205, 119, 66, 0.15)",
                             }}
                         />
                     </Slide>

@@ -9,7 +9,7 @@ export function ProjectsDisplay({ projects }: { projects: Project[] }) {
     return (
         <>
             {isWrapped ? (
-                <Flex direction="column" gap={6} overflow={"auto"}>
+                <Flex direction="column" gap={6} overflow={"auto"} p={3}>
                     {projects.map((project, index) => (
                         <Slide from={index % 2 == 0 ? 'left' : 'right'}>
                             <Box
@@ -23,7 +23,7 @@ export function ProjectsDisplay({ projects }: { projects: Project[] }) {
                 </Flex>
             ) : (
                 <>
-                    <Grid templateColumns="repeat(2, 1fr)" gap={6} overflow={"hidden"}>
+                    <Grid templateColumns="repeat(2, 1fr)" gap={6} overflow={"hidden"} p={10}>
                         {projects.map((project, index) => (
 
                             <Slide from={index % 2 == 0 ? 'left' : 'right'} delay={(index % 4) / 10}>

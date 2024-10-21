@@ -1,10 +1,13 @@
 import {useState} from "react";
 import {Project} from "../../types/projects"
-import {Box, Image} from "@chakra-ui/react"
+import {Box, Image, theme} from "@chakra-ui/react"
 import {Link} from "react-router-dom";
 
 export function ProjectImageHover({project}: { project: Project }) {
-    const [isHovered, setIsHovered] = useState(false);
+    const [isHovered, setIsHovered] = useState(true);
+
+    // @ts-ignore
+    const colorScheme = project.colorScheme ? theme.colors[project.colorScheme.split('.')[0]][project.colorScheme.split('.')[1]] : "gray";
 
     return (
         <>
@@ -24,7 +27,7 @@ export function ProjectImageHover({project}: { project: Project }) {
 
                     _hover={{
                         transform: "scale(1.02)",
-                        boxShadow: "0 20px 20px rgba(0, 0, 0, 0.25)",
+                        boxShadow: "0 10px 20px rgba(205, 119, 66, 0.3)",
                     }}                >
                     <Box
                         transition="transform 0.3s"
@@ -82,7 +85,10 @@ export function ProjectImageHover({project}: { project: Project }) {
                         zIndex={2}
                         borderRadius="md"
                     >
-                        <Box fontSize="xl">
+                        <Box
+                            fontSize="xl"
+                            mx={2}
+                        >
                             {project.name}
                         </Box>
 
@@ -92,7 +98,7 @@ export function ProjectImageHover({project}: { project: Project }) {
                             height={isHovered ? "100%" : "40px"}
                             opacity={isHovered ? 1 : 0}
                             transition="height 0.3s ease, opacity 0.3s ease"
-                             overflow="hidden"
+                            overflow="hidden"
                         >
                             <Box display="flex" mt={2}>
                                 {project.tags.slice(0, 4).map((tag, index) => (
@@ -101,11 +107,13 @@ export function ProjectImageHover({project}: { project: Project }) {
                                         px={2}
                                         py={1}
                                         border="2px solid"
-                                        borderColor={project.colorScheme || "gray.500"}
+                                        borderColor={colorScheme}
                                         color="white"
                                         borderRadius="md"
                                         fontSize="sm"
-                                        mr={2}
+                                        boxShadow={`0 0 4px ${colorScheme}`}
+                                        mx={2}
+                                        mb={"3px"}
                                     >
                                         {tag}
                                     </Box>
