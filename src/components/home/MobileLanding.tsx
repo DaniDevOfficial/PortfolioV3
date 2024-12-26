@@ -40,7 +40,6 @@ export function MobileLanding() {
                 gap={4}
                 justifyContent={"center"}
                 alignItems={"center"}
-                pt={"2rem"}
                 maxW={"95vw"}
                 pb={"2rem"}
             >

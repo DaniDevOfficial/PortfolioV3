@@ -39,7 +39,6 @@ export function DesktopLanding() {
                 flexDir={'row'}
                 gap={4}
                 justifyContent={"center"}
-                pt={"2rem"}
             >
                 <Box>
                     <Slide from={"left"}>

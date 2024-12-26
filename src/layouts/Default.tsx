@@ -19,7 +19,7 @@ export function DefaultLayout() {
                 />
                 <chakra.div minHeight={"100vh"} width={"100%"} overflowY={"hidden"}>
                 
-                    <chakra.main marginBottom={"2rem"} >
+                    <chakra.main marginY={"2rem"} >
                         <Container maxW={"container.xl"} color="#141414" fontSize={"1.4rem"}  px={"2.5vw"} >
                             <Flex
                                 flexDir={"column"}
