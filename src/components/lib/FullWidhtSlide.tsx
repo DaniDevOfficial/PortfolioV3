@@ -30,7 +30,7 @@ const getCoordinates = (position: string) => {
     }
 };
 
-export default function Slide({ children, from = "right", delay = 0 }: Props) {
+export default function FullWidthSlide({ children, from = "right", delay = 0 }: Props) {
     const fromCoordinates = getCoordinates(from);
 
     const ref = useRef(null);
@@ -57,7 +57,7 @@ export default function Slide({ children, from = "right", delay = 0 }: Props) {
                 delay: delay,
                 stiffness: 200,
             }}
-
+            style={{ width: "100%" }}
             initial="hidden"
             animate={controls}
         >
