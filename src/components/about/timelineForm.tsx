@@ -1,8 +1,9 @@
 import {useState} from "react";
-import {Box, Flex, Text} from "@chakra-ui/react";
+import {Box, Flex, Heading, Text, useDisclosure} from "@chakra-ui/react";
 import {TimelineItem, TimelineItemElement} from "./timelineItem";
 import {AnimatePresence, motion} from "framer-motion";
 import FullWidthSlide from "../lib/FullWidhtSlide.tsx";
+import Slide from "../lib/Slide.tsx";
 
 const MotionFlex = motion(Flex);
 
@@ -13,6 +14,7 @@ enum Side {
 
 export function TimelineForm() {
     const [activeSide, setActiveSide] = useState<Side>(Side.Work);
+    const {isOpen, onOpen, onClose} = useDisclosure();
 
     const workTimeLine: TimelineItemElement[] = [
         {
@@ -48,6 +50,41 @@ export function TimelineForm() {
                 width={"100%"}
                 maxWidth={"700px"}
             >
+                <Slide from='bottom'>
+                    <Heading
+                        fontSize={"2rem"}
+                        color={"text.base"}
+                    >
+                        My {' '}
+                        <Box
+                            as="span"
+                            color="primary.base"
+                            position="relative"
+                            onMouseEnter={onOpen}
+                            onMouseLeave={onClose}
+                            zIndex={5}
+                            overflow={'hidden'}
+                            padding={'0 0.2rem'}
+                        >
+                            <Box
+                                as="span"
+                                position={'absolute'}
+                                bottom={1}
+                                left={0}
+                                height={isOpen ? '100%' : '50%'}
+                                width={'100%'}
+                                background={'linear-gradient(180deg, transparent 50%, orange 0%)'}
+                                opacity={0.5}
+                                zIndex={-1}
+                                transition={'height 0.3s ease'}
+                            />
+                            Journey
+                        </Box>
+                        {' '} So Far
+                    </Heading>
+                </Slide>
+
+
                 <FullWidthSlide>
 
                     <Flex
@@ -101,8 +138,7 @@ export function TimelineForm() {
                     </Flex>
                 </FullWidthSlide>
                 <FullWidthSlide delay={0.1}>
-
-                    <Flex
+                    <MotionFlex
                         justifyContent={"center"}
                         flexDir={"column"}
                         alignItems={"flex-start"}
@@ -113,15 +149,17 @@ export function TimelineForm() {
                         outline={"1px solid"}
                         outlineColor={"primary.200"}
                         borderRadius={"10px"}
-                        maxHeight={"500px"}
                         overflow={"hidden"}
+                        initial={{height: "auto"}}
+                        animate={{height: activeSide === Side.Work ? `${workTimeLine.length * 100}px` : `${educationTimeline.length * 100}px`}}
+                        transition={{height: {duration: 0.3}}}
                     >
                         <AnimatePresence mode="wait">
                             <MotionFlex
                                 key={activeSide}
-                                initial={{opacity: 0, y: 0, x: 10}}
+                                initial={{opacity: 0, y: 0, x: 0}}
                                 animate={{opacity: 1, y: 0, x: 0}}
-                                exit={{opacity: 0, y: 0, x: -10}}
+                                exit={{opacity: 0, y: 0, x: 0}}
                                 transition={{duration: 0.2}}
                                 flexDir={"column"}
                                 gap={"20px"}
@@ -143,7 +181,7 @@ export function TimelineForm() {
                                     ))}
                             </MotionFlex>
                         </AnimatePresence>
-                    </Flex>
+                    </MotionFlex>
                 </FullWidthSlide>
             </Flex>
         </>

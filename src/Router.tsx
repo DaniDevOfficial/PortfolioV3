@@ -3,7 +3,6 @@ import { DefaultLayout } from "./layouts/Default";
 import { HomePage } from "./pages/Home";
 import { Projects } from "./pages/Projects";
 import { Project } from "./pages/Project";
-import { About } from "./pages/About";
 
 
 
@@ -24,10 +23,6 @@ const router = createHashRouter([
       {
         path: "projects/:projectName",
         element: <Project />,
-      },
-      {
-        path: 'about',
-        element: <About />
       }
     ],
   },

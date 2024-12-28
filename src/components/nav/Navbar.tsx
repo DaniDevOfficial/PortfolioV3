@@ -20,10 +20,6 @@ export function Navbar() {
         {
             name: "Projects",
             path: "/projects"
-        },
-        {
-            name: "About",
-            path : "/about"
         }
     ]
     return (
