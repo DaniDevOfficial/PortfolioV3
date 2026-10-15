@@ -112,11 +112,8 @@ export function DesktopLanding() {
                             </Box>
                             {' '}
                             <chakra.a
-                                _hover={{
-                                    animation: "wave 1s infinite",
-                                    display: "inline-block",
-                                    transition: "wave 0.2s ease-in-out"
-                                }}
+                                display={"inline-block"}
+                                animation={"wave 1s infinite"}
                                 sx={wave}
                             >
                                 👋
@@ -125,7 +122,7 @@ export function DesktopLanding() {
                     </Slide>
                     <Slide from='right' delay={0.1} >
                         <Text>
-                            I'm a software engineer from Switzerland 🇨🇭 . I'm interested in web development, focusing on the backend and enjoy learning about new technologies.
+                            I'm David Bischof, a Junior Software Engineer at Andeo AG, focused on backend development.
                         </Text>
                     </Slide>
 
@@ -133,10 +130,10 @@ export function DesktopLanding() {
                             <Text
                                 pt={"1rem"}
                             >
-                                I'm currently working as a Intern at {' '}
+                                I work part-time while studying for my bachelor's degree at{' '}
                                 <chakra.a
-                                    href={"https://www.andeo.ch"}
-                                    color={"#3d92cf"}
+                                    href="https://www.zhaw.ch/"
+                                    color="#3d92cf"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     position="relative"
@@ -144,7 +141,7 @@ export function DesktopLanding() {
                                     style={hoverStyles}
                                     sx={shine}
                                 >
-                                    Andeo
+                                    ZHAW
                                 </chakra.a>
                                 .
                             </Text>

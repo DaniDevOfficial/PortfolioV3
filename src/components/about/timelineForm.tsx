@@ -18,7 +18,13 @@ export function TimelineForm() {
 
     const workTimeLine: TimelineItemElement[] = [
         {
-            date: "Aug 2024 - present",
+            date: "Aug 2025 - present",
+            image: "https://icongeneratorai.com/static/preferences.svg",
+            bigText: "Andeo AG",
+            smallText: "Junior Software Engineer (part-time)",
+        },
+        {
+            date: "Aug 2024 - Jul 2025",
             image: "https://icongeneratorai.com/static/preferences.svg",
             bigText: "Andeo AG",
             smallText: "Intern",
@@ -26,6 +32,12 @@ export function TimelineForm() {
     ];
 
     const educationTimeline: TimelineItemElement[] = [
+        {
+            date: "Present",
+            image: "https://icongeneratorai.com/static/preferences.svg",
+            bigText: "ZHAW",
+            smallText: "Bachelor's student",
+        },
         {
             date: "Aug 2021 - Jun 2024",
             image: "https://icongeneratorai.com/static/preferences.svg",

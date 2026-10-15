@@ -124,7 +124,7 @@ export function MobileLanding() {
 
                     <Slide from='left'>
                         <Text>
-                            I'm a software engineer from Switzerland 🇨🇭 . I'm interested in web development, focusing on the backend and enjoy learning about new technologies.
+                            I'm David Bischof, a Junior Software Engineer at Andeo AG, focused on backend development.
                         </Text>
                     </Slide>
 
@@ -132,19 +132,20 @@ export function MobileLanding() {
                         <Text
                             pt={"1rem"}
                         >
-                            I'm currently working as a Intern at {' '}
-                            <chakra.a
-                                href={"https://www.andeo.ch"}
-                                color={"#3d92cf"}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                position="relative"
-                                style={hoverStyles}
-                                sx={shine}
-                            >
-                                Andeo
-                            </chakra.a>
-                            .
+                            I work part-time while studying for my bachelor's degree at{' '}
+                                <chakra.a
+                                    href="https://www.zhaw.ch/"
+                                    color="#3d92cf"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    position="relative"
+                                    _hover={hoverStyles}
+                                    style={hoverStyles}
+                                    sx={shine}
+                                >
+                                    ZHAW
+                                </chakra.a>
+                                .
                         </Text>
                     </Slide>
                 </Box>
