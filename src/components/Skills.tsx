@@ -1,70 +1,20 @@
-import { Flex, Heading, Box, Image, Text, useDisclosure } from '@chakra-ui/react'
-import WordCloud from '../assets/wordcloud.svg';
-import Slide from './lib/Slide';
-export function Skills() {
-    const { isOpen, onOpen, onClose } = useDisclosure();
+import { Box, Heading, SimpleGrid, Tag, Wrap, WrapItem } from '@chakra-ui/react';
+import { SectionHeading } from './SectionHeading';
 
-    return (
-        <>
-            <Flex
-                justifyContent={"center"}
-                alignItems={"center"}
-                flexDirection={"column"}
-                gap={4}
-            >
-                <Slide from='bottom'>
-                    <Heading
-                        fontSize={"2rem"}
-                        color={"text.base"}
-                    >
-                        My {' '}
-                        <Box
-                            as="span"
-                            color="primary.base"
-                            position="relative"
-                            onMouseEnter={onOpen}
-                            onMouseLeave={onClose}
-                            zIndex={5}
-                            overflow={'hidden'}
-                            padding={'0 0.2rem'}
-                        >
-                            <Box
-                                as="span"
-                                position={'absolute'}
-                                bottom={1}
-                                left={0}
-                                height={isOpen ? '100%' : '50%'}
-                                width={'100%'}
-                                background={'linear-gradient(180deg, transparent 50%, orange 0%)'}
-                                opacity={0.5}
-                                zIndex={-1}
-                                transition={'height 0.3s ease'}
-                            />
-                            Skills
-                        </Box>
-                        {' '}
-                    </Heading>
-                </Slide>
-                <Text
-                    fontSize={"1.2rem"}
-                    color={"text.base"}
-                    textAlign={"center"}
-                >
-                </Text>
-                <Slide from='bottom' delay={0.1}>
-                    <Box
-                        width={"100%"}
-                        height={"100%"}
-                    >
-                        <Image
-                            h={{ base: "auto", md: "90vh" }}
-                            maxH={"800px"}
-                            src={WordCloud.toString()}
-                            alt={"Word Cloud"}
-                        />
-                    </Box>
-                </Slide>
-            </Flex>
-        </>
-    )
+const groups = [
+    { title: 'Backend', items: ['Node.js', 'Express', 'Java', 'REST APIs', 'MySQL', 'Firebase'] },
+    { title: 'Frontend', items: ['TypeScript', 'React', 'JavaScript', 'HTML & CSS'] },
+    { title: 'Tools', items: ['Git', 'Docker', 'Vite'] },
+];
+
+export function Skills() {
+    return <Box as="section" w="full">
+        <SectionHeading title="Skills & tools" />
+        <SimpleGrid columns={{ base: 1, md: 3 }} gap={6}>
+            {groups.map(group => <Box key={group.title} p={6} border="1px solid" borderColor="primary.100" borderRadius="xl" bg="whiteAlpha.500">
+                <Heading as="h3" fontSize="lg" mb={4}>{group.title}</Heading>
+                <Wrap spacing={2}>{group.items.map(item => <WrapItem key={item}><Tag bg="background.base" color="primary.800" px={3} py={2} borderRadius="md">{item}</Tag></WrapItem>)}</Wrap>
+            </Box>)}
+        </SimpleGrid>
+    </Box>;
 }

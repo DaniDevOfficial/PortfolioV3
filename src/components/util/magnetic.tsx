@@ -11,7 +11,6 @@ export default function Magnetic({ children }: Props) {
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
   const mouseMouse: MouseEventHandler<HTMLDivElement> = (event) => {
-    console.log("mouseMove");
     const { clientX, clientY } = event;
     if (ref.current) {
       const { width, height, top, left } = ref.current.getBoundingClientRect();

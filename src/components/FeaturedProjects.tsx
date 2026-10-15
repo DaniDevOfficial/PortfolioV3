@@ -1,72 +1,13 @@
-import { Box, Button, Flex, Heading, Text, useDisclosure } from '@chakra-ui/react';
-import { Project } from '../types/projects'
-import { ProjectsDisplay } from './Ui/ProjectsDisplay';
+import { Box, Button } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
-import Slide from './lib/Slide';
+import { Project } from '../types/projects';
+import { ProjectsDisplay } from './Ui/ProjectsDisplay';
+import { SectionHeading } from './SectionHeading';
 
 export function FeaturedProjects({ projects }: { projects: Project[] }) {
-    const featuredProjectsIds = ['1', '2'];
-    const featuredProjects = projects.filter(project => featuredProjectsIds.includes(project.id));
-    const { isOpen, onOpen, onClose } = useDisclosure();
-
-    return (
-        <>
-            <Flex
-                justifyContent={"center"}
-                alignItems={"center"}
-                flexDirection={"column"}
-                gap={4}
-            >
-                <Slide from='left'>
-                    <Heading
-                        fontSize={"2rem"}
-                        color={"text.base"}
-                    >
-                        Featured {' '}
-                        <Box
-                            as="span"
-                            color="primary.base"
-                            position="relative"
-                            onMouseEnter={onOpen}
-                            onMouseLeave={onClose}
-                            zIndex={5}
-                            overflow={'hidden'}
-                            padding={'0 0.2rem'}
-                        >
-                            <Box
-                                as="span"
-                                position={'absolute'}
-                                bottom={1}
-                                left={0}
-                                height={isOpen ? '100%' : '50%'}
-                                width={'100%'}
-                                background={'linear-gradient(180deg, transparent 50%, orange 0%)'}
-                                opacity={0.5}
-                                zIndex={-1}
-                                transition={'height 0.3s ease'}
-                            />
-                            Projects
-                        </Box>
-                        {' '}
-                    </Heading>
-                </Slide>
-                <Slide from='right'>
-                    <Text
-                        fontSize={"1.2rem"}
-                        color={"gray.600"}
-                        textAlign={"center"}
-                    >
-                        Here are some of the projects I have worked on.
-                    </Text>
-                </Slide>
-
-                <ProjectsDisplay projects={featuredProjects} />
-                <Slide from='bottom'>
-                    <Button as={Link} to="/projects" colorScheme="primary" size="lg" mt={4}>
-                        View All Projects
-                    </Button>
-                </Slide>
-            </Flex>
-        </>
-    )
+    return <Box as="section" w="full" id="featured-projects">
+        <SectionHeading title="Selected projects" description="A few things I've worked on, from investment tracking to multiplayer games." />
+        <ProjectsDisplay projects={projects.filter(project => ['1', '2'].includes(project.id))} />
+        <Button as={Link} to="/projects" variant="outline" borderColor="primary.300" mt={8}>View all projects →</Button>
+    </Box>;
 }

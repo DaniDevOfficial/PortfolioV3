@@ -1,53 +1,11 @@
-import { Text, useMediaQuery, Box, Heading, useDisclosure } from "@chakra-ui/react"
-import ProjectsData from "../data/Projects.json"
-import { ProjectsDisplay } from "../components/Ui/ProjectsDisplay";
-import Slide from "../components/lib/Slide";
-export function Projects() {
-    const [isWrapped] = useMediaQuery("(max-width: 800px)");
-    const { isOpen, onOpen, onClose } = useDisclosure();
-    return (
-        <Box>
-            <Box
-                textAlign={isWrapped ? "center" : "left"}
-                my={6}
-            >
+import { Box } from '@chakra-ui/react';
+import ProjectsData from '../data/Projects.json';
+import { ProjectsDisplay } from '../components/Ui/ProjectsDisplay';
+import { SectionHeading } from '../components/SectionHeading';
 
-                <Slide from="left">
-                    <Heading as="h1" size="xl" mt={6}>
-                        My
-                        <Box
-                            as="span"
-                            color="primary.base"
-                            position="relative"
-                            onMouseEnter={onOpen}
-                            onMouseLeave={onClose}
-                            zIndex={5}
-                            overflow={'hidden'}
-                            padding={'0 0.2rem'}
-                        >
-                            <Box
-                                as="span"
-                                position={'absolute'}
-                                bottom={1}
-                                left={0}
-                                height={isOpen ? '100%' : '50%'}
-                                width={'100%'}
-                                background={'linear-gradient(180deg, transparent 50%, orange 0%)'}
-                                opacity={0.5}
-                                zIndex={-1}
-                                transition={'height 0.3s ease'}
-                            />
-                            Projects
-                        </Box>
-                    </Heading>
-                </Slide>
-                <Slide from="left" delay={0.1}>
-                    <Text mt={4} maxW={isWrapped ? "80%" : "30%"} ml={isWrapped ? "10%" : "0"} textAlign={isWrapped ? "center" : "left"} >
-                        Here are some of the projects I've worked on. Click on them to learn more about them.
-                    </Text>
-                </Slide>
-            </Box>
-            <ProjectsDisplay projects={ProjectsData} />
-        </Box>
-    )
+export function Projects() {
+    return <Box w="full" maxW="960px" mx="auto" px={{ base: 2, md: 4 }} py={{ base: 4, md: 8 }}>
+        <SectionHeading title="Projects" description="A selection of my personal and group projects." />
+        <ProjectsDisplay projects={ProjectsData.filter(project => !['4', '5'].includes(project.id))} />
+    </Box>;
 }

@@ -1,70 +1,15 @@
-import { Flex, chakra, Text } from '@chakra-ui/react'
-import {Link, useLocation} from 'react-router-dom'
-import {useEffect, useState} from "react";
+import { Button, Container, Flex, Link } from '@chakra-ui/react';
+import { Link as RouterLink, useLocation } from 'react-router-dom';
 
 export function Navbar() {
-
-    const [currentActive, setCurrentActive] = useState<string|undefined>()
-
-    const location = useLocation();
-
-    useEffect(() => {
-        setCurrentActive(location.pathname);
-    }, [location.pathname]);
-
-    const routes = [
-        {
-            name: "Home",
-            path: "/"
-        },
-        {
-            name: "Projects",
-            path: "/projects"
-        }
-    ]
-    return (
-        <>
-            <chakra.div
-            >
-                <chakra.nav
-                    bg={"background.base"}
-                    color={"text.base"}
-                    padding={"1rem"}
-                    position={"sticky"}
-                    top={0}
-                    zIndex={10}
-
-                >
-
-                    <Flex justifyContent="space-between" alignItems="center">
-                        <chakra.h1>Dani Dev</chakra.h1>
-                        <Flex
-                            flexDir={"row"}
-                            gap={4}
-                        >
-                            {routes.map((route) => {
-                                return (
-                                    <Text
-                                        as={Link}
-                                        to={route.path}
-                                        key={route.name}
-                                        cursor={"pointer"}
-                                        _hover={{ letterSpacing: "0.2em", fontWeight: "bold", color: "accent.base" }}
-                                        transition="transform 0.3s ease-in-out, letter-spacing 0.2s ease-in-out, font-weight 0.2s ease-in-out, color 0.2s ease-in-out"
-                                        letterSpacing={currentActive === route.path ? 'bold' : 'normal'}
-                                        fontWeight={currentActive === route.path ? 'bold' : 'normal'}
-                                        color={currentActive === route.path ? 'primary.base' : 'text.base'}
-                                    >
-                                        {route.name}
-                                    </Text>
-                                )
-                            })}
-                        </Flex>
-                    </Flex>
-
-                </chakra.nav>
-            </chakra.div>
-
-        </>
-    )
+    const { pathname } = useLocation();
+    return <Container as="nav" aria-label="Main navigation" maxW="container.lg" px={{ base: 5, md: 8 }} py={5}>
+        <Flex align="center" justify="space-between" gap={4}>
+            <Link as={RouterLink} to="/" fontWeight="bold" fontSize={{ base: 'md', md: 'lg' }} _hover={{ color: 'primary.700', textDecoration: 'none' }}>David Bischof</Link>
+            <Flex align="center" gap={{ base: 3, md: 6 }} fontSize="sm" fontWeight="medium">
+                {[{ label: 'Home', to: '/', active: pathname === '/' }, { label: 'Projects', to: '/projects', active: pathname.startsWith('/projects') }].map(item => <Link as={RouterLink} to={item.to} key={item.to} py={2} color={item.active ? 'primary.700' : 'gray.600'} aria-current={item.active ? 'page' : undefined} _hover={{ color: 'primary.700' }}>{item.label}</Link>)}
+                <Button as="a" href="mailto:bischof.david.db@gmail.com" size="sm" variant="outline" borderColor="primary.300" display={{ base: 'none', sm: 'inline-flex' }}>Contact</Button>
+            </Flex>
+        </Flex>
+    </Container>;
 }
