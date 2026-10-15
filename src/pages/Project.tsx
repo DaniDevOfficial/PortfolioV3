@@ -1,95 +1,29 @@
-import { useEffect, useState } from 'react'
-import { Landing } from '../components/project/Landing'
-import { useParams } from 'react-router-dom'
-import Projects from "../data/Projects.json"
+import { Box, Button, Link, Stack, Text } from '@chakra-ui/react';
+import { Link as RouterLink, useParams } from 'react-router-dom';
+import Projects from '../data/Projects.json';
+import { Landing } from '../components/project/Landing';
 import { Content } from '../components/project/Content';
-import { Box, chakra, Flex, Grid, Heading, useMediaQuery } from '@chakra-ui/react';
-import {Project as ProjectType} from '../types/projects';
-import { ProjectImageHover } from '../components/Ui/ProjectImageHover';
+import { ProjectsDisplay } from '../components/Ui/ProjectsDisplay';
+import { SectionHeading } from '../components/SectionHeading';
+import { Reveal } from '../components/Reveal';
+
 export function Project() {
-    const [randomProjects, setRandomProjects] = useState<ProjectType[]>([]);
-    const [thisProject, setThisProject] = useState<ProjectType|undefined>()
-    const name = useParams<{ projectName: string }>().projectName;
-    const [isWrapped] = useMediaQuery("(max-width: 1000px)");
-    useEffect(() => {
-
-        function randomProjects(amount: number) {
-            if (Projects.length <= amount) return Projects;
-            const projects = [...Projects];
-            const randomProjects = [];
-            while (randomProjects.length < amount) {
-                const randomIndex = Math.floor(Math.random() * projects.length);
-                if (projects[randomIndex].id === thisProject?.name) continue;
-                randomProjects.push(projects[randomIndex]);
-                projects.splice(randomIndex, 1);
-            }
-            return randomProjects;
-        }
-
-        setRandomProjects(randomProjects(2));
-    setThisProject(Projects.find(p => p.name.toLowerCase() === name?.toLowerCase()))
-
-    }, [name]);
-
-
-    if (!name) return null;
-
-    if (!thisProject) return null;
-
-    return (
-        <>
-            <Landing project={thisProject} />
-            <Box
-                height={"1px"}
-                width={"100%"}
-                backgroundColor={"primary.200"}
-                margin={"2rem 0"}
-            />
-            <Content mdFormatedText={thisProject.longText} />
-            <Box
-                height={"1px"}
-                width={"100%"}
-                backgroundColor={"primary.200"}
-                margin={"2rem 0"}
-            />
-            <Heading as="h2" size="lg" m={6} textAlign={"center"} >
-                Other <chakra.a color={"primary.base"}> Projects</chakra.a>
-            </Heading>
-            <Box
-                display={"flex"}
-                justifyContent={"space-around"}
-                alignItems={"center"}
-            >
-
-
-                {isWrapped ? (
-                    <Flex direction="column" gap={6}>
-                        {randomProjects.map((project) => (
-                            <Box
-                                key={project.id}
-                                h={"300px"}
-                            >
-                                <ProjectImageHover project={project} />
-                            </Box>
-                        ))}
-                    </Flex>
-                ) : (
-                    <>
-                        <Grid templateColumns="repeat(2, 1fr)" gap={6}>
-                            {randomProjects.map((project, index) => (
-                                <Box
-                                    key={project.id}
-                                    mt={index % 2 === 0 ? "75px" : "0"}
-                                    w="calc(100% - 50px)"
-                                    h={"300px"}
-                                >
-                                    <ProjectImageHover project={project} />
-                                </Box>
-                            ))}
-                        </Grid>
-                    </>
-                )}
-            </Box>
-        </>
-    )
+    const { projectName } = useParams<{ projectName: string }>();
+    const project = Projects.find(item => item.name.toLowerCase() === projectName?.toLowerCase());
+    if (!project) return <Stack py={12} spacing={4} align="flex-start">
+        <Text>Project not found.</Text>
+        <Button as={RouterLink} to="/projects" variant="outline">Back to projects</Button>
+    </Stack>;
+    const otherProjects = Projects.filter(item => item.id !== project.id && !['4', '5'].includes(item.id)).slice(0, 2);
+    return <Stack key={project.id} w="full" maxW="960px" mx="auto" px={{ base: 2, md: 4 }} py={{ base: 4, md: 8 }} spacing={{ base: 10, md: 14 }}>
+        <Link as={RouterLink} to="/projects" fontSize="sm" color="primary.700" alignSelf="flex-start">← All projects</Link>
+        <Landing project={project} />
+        <Box borderTop="1px solid" borderColor="primary.100" pt={{ base: 8, md: 12 }}>
+            <Reveal><Content mdFormatedText={project.longText} /></Reveal>
+        </Box>
+        {otherProjects.length > 0 && <Box as="section" borderTop="1px solid" borderColor="primary.100" pt={{ base: 8, md: 12 }}>
+            <SectionHeading title="Other projects" />
+            <ProjectsDisplay projects={otherProjects} />
+        </Box>}
+    </Stack>;
 }

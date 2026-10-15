@@ -2,9 +2,9 @@ import { Box, Heading, SimpleGrid, Tag, Wrap, WrapItem } from '@chakra-ui/react'
 import { SectionHeading } from './SectionHeading';
 
 const groups = [
-    { title: 'Backend', items: ['Node.js', 'Express', 'Java', 'REST APIs', 'MySQL', 'Firebase'] },
-    { title: 'Frontend', items: ['TypeScript', 'React', 'JavaScript', 'HTML & CSS'] },
-    { title: 'Tools', items: ['Git', 'Docker', 'Vite'] },
+    { title: 'Backend', items: ['Node.js', 'Express', 'Java', 'REST APIs', 'MySQL', 'Postgres', 'Php', 'GoLang', ''] },
+    { title: 'Frontend', items: ['TypeScript', 'React', 'JavaScript', 'HTML & CSS', 'React-Native'] },
+    { title: 'Tools', items: ['Git', 'Docker', 'Vite', 'Air'] },
 ];
 
 export function Skills() {

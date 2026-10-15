@@ -1,8 +1,8 @@
-import { RouterProvider, createHashRouter } from "react-router-dom";
+import { Navigate, RouterProvider, createHashRouter } from "react-router-dom";
 import { DefaultLayout } from "./layouts/Default";
 import { HomePage } from "./pages/Home";
 import { Projects } from "./pages/Projects";
-import { Project } from "./pages/Project";
+
 
 
 
@@ -22,7 +22,7 @@ const router = createHashRouter([
       },
       {
         path: "projects/:projectName",
-        element: <Project />,
+        element: <Navigate to="/projects" replace />, // this will maybe be used later on
       }
     ],
   },
